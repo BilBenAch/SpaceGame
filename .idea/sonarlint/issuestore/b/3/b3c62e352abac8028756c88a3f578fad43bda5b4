@@ -1,0 +1,39 @@
+
+E
+java:S1068"(Remove this unused "dirX" private field.(Š÷¿¨8˜Ðû‚…/
+@
+java:S1659"#Declare "width" on a separate line.(èÂÞ»8˜Ðû‚…/
+E
+java:S1068"(Remove this unused "dirY" private field.(Š÷¿¨8˜Ðû‚…/
+?
+java:S1659""Declare "posY" on a separate line.(èÂÞ»8˜Ðû‚…/
+?
+java:S1659""Declare "velX" on a separate line.(èÂÞ»8˜Ðû‚…/
+A
+java:S1659"$Declare "height" on a separate line.(èÂÞ»8˜Ðû‚…/
+?
+java:S1659""Declare "dirY" on a separate line.(Š÷¿¨8˜Ðû‚…/
+]	java:S1251"<This block of commented-out lines of code should be removed.(ƒ×ì¬úÿÿÿÿ8˜Ðû‚…/
+C	java:S131I""Add a default case to this switch.(Æóõµýÿÿÿÿ8˜Ðû‚…/
+c
+java:S1126D"AReplace this if-then-else statement by a single return statement.(äÎšºøÿÿÿÿ8˜Ðû‚…/
+>
+java:S1170"!Make this final field static too.(þÒØÜ8˜Ðû‚…/
+L
+java:S1068"/Remove this unused "NUM_SPRITES" private field.(þÒØÜ8‘ˆ®ƒ…/
+S
+java:S1128"6Remove this unused import 'javafx.event.EventHandler'.(º»û˜8‰»ž‚…/
+r	java:S116"VRename this field "NUM_SPRITES" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(þÒØÜ8˜Ðû‚…/
+?
+java:S1659""Declare "velY" on a separate line.(èÂÞ»8˜Ðû‚…/
+[
+java:S1128
+"9Remove this unused import 'javafx.scene.image.ImageView'.(áÿ®Ãüÿÿÿÿ8˜Í„‚…/
+K
+java:S1128".Remove this unused import 'javafx.scene.Node'.(ÑÖ¬ï8½®ü‚…/
+T
+java:S1128"7Remove this unused import 'javafx.scene.input.KeyCode'.(ûÊ¢¶8‰»ž‚…/
+Y
+java:S1128"7Remove this unused import 'javafx.scene.canvas.Canvas'.(á­Š©üÿÿÿÿ8¼·Ÿ‚…/
+Z
+java:S1128"8Remove this unused import 'javafx.scene.input.KeyEvent'.(¦¶ Æøÿÿÿÿ8‰»ž‚…/

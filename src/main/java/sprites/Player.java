@@ -1,51 +1,53 @@
 package sprites;
 
+import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 public class Player {
-
+    private final int NUM_SPRITES = 7;
     private Image image;
-    private double posX, posY, velX, velY, width, height;
+    private double posX, posY, velX, velY, width = 20, height=20;
     private int dirX, dirY;
+    private int index = 0;
 
-    public Player(Image image) {
-        this.posX = Math.random()*600;
-        this.posY = Math.random()*600;
-        this.velX = 1.0f;
-        this.velY = 1.0f;
+    public Player() {
+        this.posX = 200f;
+        this.posY = 350f;
+        this.velX = 2.0f;
+        this.velY = 2.0f;
         this.dirX = 1;
         this.dirY = 1;
-        setImage(image);
     }
 
-    /**
-     * El moviment de la pilota és gestionat per la mateixa pilota
-     * En aquest exemple només cal generalitzar les mides per on es
-     * pot moure. En aquest cas en una finestra de 600x400
-     */
-    public void move() {
-        if(dirX == 1) {
-            posX += velX;
-            if(posX>=600-width) dirX = (-1)*dirX;
-        }else {
-            posX -= velX;
-            if(posX<=0) dirX = (-1)*dirX;
-        }
-        if(dirY == 1){
-            posY += velY;
-            if(posY>=600-height) dirY = (-1)*dirY;
-        }
-        else {
-            posY -= velY;
-            if(posY<=0) dirY = (-1)*dirY;
-        }
+    public void moveRight() {
+        posX += (velX*2);
+        index++;
+    }
+
+    public void moveLeft() {
+        posX -= velX*2;
+    }
+
+    public void moveDown() {
+        posY += velY*2;
+    }
+
+
+    public void moveUp() {
+        posY -= velY*2;
     }
 
     public void render(GraphicsContext gc) {
-        gc.drawImage(image, posX, posY);
+        gc.drawImage(image, posX, posY); //, CANVAS_WIDTH/2 - WIDTH/2, CANVAS_HEIGHT/2 - HEIGHT/2, WIDTH, HEIGHT);
+
     }
 
     public void setImage(Image i) {
@@ -54,12 +56,6 @@ public class Player {
         height = image.getHeight();
     }
 
-    /**
-     * Netejar la zona que ocupa l'objecte dins del graphicsContext
-     * Al clearRect li passem la posició i les mides de la imatge.
-     *
-     * @param gc
-     */
     public void clear(GraphicsContext gc) {
         gc.clearRect(posX,posY, width, height);
     }
@@ -73,31 +69,21 @@ public class Player {
         else return false;
     }
 
-    public void changeDir() {
-        double t = Math.random();
-        if(0.33 > t) dirX = dirX*(-1);
-        if(0.33 < t && 0.66 > t) dirY = dirY*(-1);
-        if(0.66 < t) {
-            dirY = dirY*(-1);
-            dirX = dirX*(-1);
-        }
-
-    }
-
     public void setDirection(String direction) {
         switch (direction) {
             case "RIGHT":
-                dirX = 1;
+                moveRight();
                 break;
             case "LEFT":
-                dirX = -1;
+                moveLeft();
                 break;
             case "DOWN":
-                dirY = 1;
+                moveDown();
                 break;
             case "UP":
-                dirY = -1;
+                moveUp();
                 break;
+
         }
     }
 }
