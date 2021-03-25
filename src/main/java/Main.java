@@ -17,12 +17,16 @@ public class Main extends Application {
         primaryStage.setTitle("SpaceGame");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("GameWindow.fxml"));
         Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root);
+
         GameWindow gameWindow = fxmlLoader.getController();
+
+        Scene scene = new Scene(root);
+
+
         gameWindow.setScene(scene);
+        gameWindow.setStage(primaryStage);
         primaryStage.setScene(scene);
         primaryStage.show();
-
 
 
     }
