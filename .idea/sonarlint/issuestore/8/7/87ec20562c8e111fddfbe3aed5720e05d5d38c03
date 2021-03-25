@@ -1,19 +1,32 @@
 
-U	java:S106S"9Replace this use of System.out or System.err by a logger.( ùÈâ8¦ª­……/
 G
-java:S1481K"*Remove this unused "point" local variable.(’ç–„8¦ª­……/
-U	java:S106L"9Replace this use of System.out or System.err by a logger.(ÿÒüë8¦ª­……/
-J
-java:S1604H"(Make this anonymous inner class a lambda(Ïƒïıÿÿÿÿ8¦ª­……/
-E
-java:S1604P"(Make this anonymous inner class a lambda(ò™ªÄ8¦ª­……/
+java:S1481h"*Remove this unused "point" local variable.(’ç–„8¦ª­……/
+[
+java:S1128"9Remove this unused import 'javafx.scene.image.ImageView'.(áÿ®Ãüÿÿÿÿ8ıŠ„¬†/
 V
-java:S1854K"9Remove this useless assignment to local variable "point".(’ç–„8¦ª­……/
-q
-java:S1450"TRemove the "scene" field and declare it as a local variable in the relevant methods.(÷‘éÑ8éÑ……/
+java:S1854h"9Remove this useless assignment to local variable "point".(’ç–„8¦ª­……/
+J
+java:S1604?"(Make this anonymous inner class a lambda(·Ùà¿şÿÿÿÿ8è¦¼Œ…/
+e
+java:S1128"CRemove this unused import 'javafx.scene.layout.BackgroundPosition'.(ãØ­ùÿÿÿÿ8ğáµ†…/
 ^
 java:S1128"<Remove this unused import 'javafx.animation.AnimationTimer'.(•ïÍ¥ÿÿÿÿÿ8ù°ã„…/
-g
-java:S3252?"EUse static access with "javafx.animation.Animation" for "INDEFINITE".(Êı şÿÿÿÿ8¿Šò……/
+X	java:S125t"<This block of commented-out lines of code should be removed.(¦íÌ­8ÛŒ®ı…/
+U	java:S106p"9Replace this use of System.out or System.err by a logger.( ùÈâ8¦ª­……/
+q
+java:S1450&"TRemove the "scene" field and declare it as a local variable in the relevant methods.(÷‘éÑ8éÑ……/
+b
+java:S1128"@Remove this unused import 'javafx.scene.layout.BackgroundImage'.(Óúäİûÿÿÿÿ8ğáµ†…/
+]	java:S1256"<This block of commented-out lines of code should be removed.(ºíˆ†ùÿÿÿÿ8Á¹“ª†/
+]
+java:S1128";Remove this unused import 'javafx.scene.layout.Background'.(¤ä—ıÿÿÿÿ8ğáµ†…/
+E
+java:S1604m"(Make this anonymous inner class a lambda(ò™ªÄ8¦ª­……/
+^
+java:S1128"ARemove this unused import 'javafx.scene.layout.BackgroundRepeat'.(¹ÒŒù8ğáµ†…/
+U	java:S106i"9Replace this use of System.out or System.err by a logger.(ÿÒüë8¦ª­……/
+E
+java:S1604-"(Make this anonymous inner class a lambda(Ô†ª°8ïŸ‹…/
 J
-java:S1604#"(Make this anonymous inner class a lambda(âı‚Ğşÿÿÿÿ8ë’ì……/
+java:S1604e"(Make this anonymous inner class a lambda(Ïƒïıÿÿÿÿ8¦ª­……/
+W	java:S125W"<This block of commented-out lines of code should be removed.(´ÉÏ]8¹õÚ¬†/

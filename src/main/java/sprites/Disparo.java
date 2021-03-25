@@ -2,14 +2,13 @@ package sprites;
 
 import javafx.scene.image.Image;
 
-public class Enemy extends Sprite {
-
+public class Disparo extends Sprite{
     private double velX, velY;
     private int dirX, dirY;
 
-    public Enemy(Image image) {
+    public Disparo(Image image) {
         super(image);
-        setX(Math.random()*600+1);
+        setX(0);
         setY(0);
         this.velX = 1.0f;
         this.velY = 0.5f;
@@ -29,6 +28,14 @@ public class Enemy extends Sprite {
             setY(getPosY() - velY);
             if(getPosY() <= 0) dirY = (-1)*dirY;
         }
-
     }
+
+    public void setDirection(String direction) {
+        switch (direction) {
+            case "SPACE":
+                move();
+                break;
+        }
+    }
+
 }
