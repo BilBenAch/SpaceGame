@@ -8,9 +8,13 @@ import sprites.Player;
 
 public class Main extends Application {
 
+    public static int WIDTH = 600;
+    public static int HEIGHT = 600;
+
     public static void main(String[] args) {
         launch(args);
     }
+
 
     @Override
     public void start(Stage primaryStage) throws Exception{

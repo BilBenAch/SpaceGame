@@ -64,7 +64,7 @@ public class GameWindow implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         gc = canvas.getGraphicsContext2D();
         gc.setFill(Color.BLACK);
-        player = new Player(new ImageView(new Image("sprites/player_ship.png")), 0, 0);
+        player = new Player(new ImageView(new Image("sprites/player_ship.png")), 300, 300);
         //player.setImage(new Image("sprites/player_ship.png"));
         enemies = new Enemy[5];
         for (int i = 0; i < enemies.length; i++) {

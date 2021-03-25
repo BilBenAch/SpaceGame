@@ -17,7 +17,7 @@ public abstract class Character {
         this.character.setTranslateX(x);
         this.character.setTranslateY(y);
 
-        this.movement = new Point2D(0, 0);
+        this.movement = new Point2D(x, y);
     }
 
     public ImageView getCharacter() {
@@ -38,11 +38,11 @@ public abstract class Character {
     }
 
     public void accelerate() {
-        double changeX = Math.cos(Math.toRadians(this.character.getRotate()));
-        double changeY = Math.sin(Math.toRadians(this.character.getRotate()));
+        double changeX = Math.cos(Math.toRadians(this.character.getRotate() - 90));
+        double changeY = Math.sin(Math.toRadians(this.character.getRotate() - 90));
 
-        changeX *= 0.05;
-        changeY *= 0.05;
+        changeX *= 1;
+        changeY *= 1;
 
         this.movement = this.movement.add(changeX, changeY);
     }
@@ -51,6 +51,7 @@ public abstract class Character {
         SnapshotParameters snapshotParameters = new SnapshotParameters();
         snapshotParameters.setFill(Color.TRANSPARENT);
         Image image = character.snapshot(snapshotParameters, null);
-        gc.drawImage(image, character.getX(), character.getY());
+        System.out.println(movement.getX() + " " + movement.getY());
+        gc.drawImage(image, movement.getX(), movement.getY());
     }
 }
