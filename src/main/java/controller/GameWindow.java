@@ -25,7 +25,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import sprites.Enemy;
-import sprites.Player;
+//import sprites.Player;
 
 import java.net.URL;
 import java.util.HashMap;
@@ -36,9 +36,11 @@ public class GameWindow implements Initializable {
     @FXML
     Canvas canvas;
 
+    public static int WIDTH = 600;
+    public static int HEIGHT = 600;
     Scene scene;
     Stage primaryStage;
-    private Player player;
+    //private Player player;
     private GraphicsContext gc;
     private Enemy[] enemies;
 
@@ -64,13 +66,13 @@ public class GameWindow implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         gc = canvas.getGraphicsContext2D();
         gc.setFill(Color.BLACK);
-        player = new Player(new ImageView(new Image("sprites/player_ship.png")), 300, 300);
+        //player = new Player(new ImageView(new Image("sprites/player_ship.png")), WIDTH/2, HEIGHT/2);
         //player.setImage(new Image("sprites/player_ship.png"));
         enemies = new Enemy[5];
         for (int i = 0; i < enemies.length; i++) {
             enemies[i] = new Enemy(new Image("sprites/rock1.png"));
         }
-        player.render(gc);
+        //player.render(gc);
         //timeline.setCycleCount(Timeline.INDEFINITE);
         //timeline.play();
 
@@ -80,19 +82,19 @@ public class GameWindow implements Initializable {
             public void handle(long now) {
 
                 if(pressedKeys.getOrDefault(KeyCode.LEFT, false)) {
-                    player.turnLeft();
+                    //player.turnLeft();
                 }
 
                 if(pressedKeys.getOrDefault(KeyCode.RIGHT, false)) {
-                    player.turnRight();
+                    //player.turnRight();
                 }
 
                 if(pressedKeys.getOrDefault(KeyCode.UP, false)) {
-                    player.accelerate();
+                    //player.accelerate();
                 }
 
-                player.move();
-                player.render(gc);
+                //player.move();
+                //player.render(gc);
             }
         }.start();
 

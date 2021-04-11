@@ -13,9 +13,9 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 
-public class Player extends Character{
+//public class Player extends Character{
 
-    public Player(ImageView polygon, int x, int y) {
-        super(polygon, x, y);
-    }
-}
+    //public Player(ImageView polygon, int x, int y) {
+        //super(polygon, x, y);
+    //}
+//}

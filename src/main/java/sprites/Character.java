@@ -1,27 +1,42 @@
 package sprites;
 
 import javafx.geometry.Point2D;
-import javafx.scene.SnapshotParameters;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
+import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Shape;
+import main.AsteroidsGame;
 
 public abstract class Character {
 
-    private ImageView character;
+    private Polygon character;
     private Point2D movement;
+    private boolean alive;
 
-    public Character(ImageView polygon, int x, int y) {
+    public Character(Polygon polygon, int x, int y) {
         this.character = polygon;
         this.character.setTranslateX(x);
         this.character.setTranslateY(y);
 
-        this.movement = new Point2D(x, y);
+        this.movement = new Point2D(0, 0);
     }
 
-    public ImageView getCharacter() {
+    public Polygon getCharacter() {
         return character;
+    }
+
+    public Point2D getMovement() {
+        return movement;
+    }
+
+    public void setMovement(Point2D movement) {
+        this.movement = movement;
+    }
+
+    public boolean isAlive() {
+        return alive;
+    }
+
+    public void setAlive(boolean alive) {
+        this.alive = alive;
     }
 
     public void turnLeft() {
@@ -35,23 +50,36 @@ public abstract class Character {
     public void move() {
         this.character.setTranslateX(this.character.getTranslateX() + this.movement.getX());
         this.character.setTranslateY(this.character.getTranslateY() + this.movement.getY());
+
+        if (this.character.getTranslateX() < 0) {
+            this.character.setTranslateX(this.character.getTranslateX() + AsteroidsGame.WIDTH);
+        }
+
+        if (this.character.getTranslateX() > AsteroidsGame.WIDTH) {
+            this.character.setTranslateX(this.character.getTranslateX() % AsteroidsGame.WIDTH);
+        }
+
+        if (this.character.getTranslateY() < 0) {
+            this.character.setTranslateY(this.character.getTranslateY() + AsteroidsGame.HEIGHT);
+        }
+
+        if (this.character.getTranslateY() > AsteroidsGame.HEIGHT) {
+            this.character.setTranslateY(this.character.getTranslateY() % AsteroidsGame.HEIGHT);
+        }
     }
 
     public void accelerate() {
-        double changeX = Math.cos(Math.toRadians(this.character.getRotate() - 90));
-        double changeY = Math.sin(Math.toRadians(this.character.getRotate() - 90));
+        double changeX = Math.cos(Math.toRadians(this.character.getRotate()));
+        double changeY = Math.sin(Math.toRadians(this.character.getRotate()));
 
-        changeX *= 1;
-        changeY *= 1;
+        changeX *= 0.05;
+        changeY *= 0.05;
 
         this.movement = this.movement.add(changeX, changeY);
     }
 
-    public void render(GraphicsContext gc){
-        SnapshotParameters snapshotParameters = new SnapshotParameters();
-        snapshotParameters.setFill(Color.TRANSPARENT);
-        Image image = character.snapshot(snapshotParameters, null);
-        System.out.println(movement.getX() + " " + movement.getY());
-        gc.drawImage(image, movement.getX(), movement.getY());
+    public boolean collide(Character other) {
+        Shape collisionArea = Shape.intersect(this.character, other.getCharacter());
+        return collisionArea.getBoundsInLocal().getWidth() != -1;
     }
 }
