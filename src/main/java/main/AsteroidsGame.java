@@ -79,7 +79,7 @@ public class AsteroidsGame extends Application {
                     ship.accelerate();
                 }
 
-                if (pressedKeys.getOrDefault(KeyCode.SPACE, false) && projectiles.size() < 3) {
+                if (pressedKeys.getOrDefault(KeyCode.SPACE, false) && projectiles.size() < 15) {
                     // we shoot
                     Projectile projectile = new Projectile((int) ship.getCharacter().getTranslateX(), (int) ship.getCharacter().getTranslateY());
                     projectile.getCharacter().setRotate(ship.getCharacter().getRotate());
