@@ -1,0 +1,8 @@
+.root{
+    -fx-background-image: url("space_background.gif");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 600 600;
+    -fx-background-position: center center;
+    -fx-text-fill: red;
+    -fx-font-size: 16px;
+}
