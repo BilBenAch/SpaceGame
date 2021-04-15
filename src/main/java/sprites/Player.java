@@ -12,11 +12,20 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
-
-public class Player extends Character{
-
-    public Player(ImageView character, int x, int y) {
-        super(character, x, y);
-
-    }
-}
+//
+//
+//public class Player extends Character{
+//
+//    public Player(ImageView character, int x, int y) {
+//        super(character, x, y);
+//
+//    }
+//}
+//
+////public class Player extends Character{
+//
+//    //public Player(ImageView polygon, int x, int y) {
+//        //super(polygon, x, y);
+//    //}
+////}
+//

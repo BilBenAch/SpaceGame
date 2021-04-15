@@ -9,7 +9,7 @@ public class Enemy extends Sprite {
 
     public Enemy(Image image) {
         super(image);
-        setX(Math.random()*600+1);
+        setX(Math.random()*600);
         setY(0);
         this.velX = 1.0f;
         this.velY = 0.5f;

@@ -1,10 +1,2 @@
 
-?
-java:S1659""Declare "velY" on a separate line.(ƒúõŠ8¬§™Œ…/
-m
-java:S1301""KReplace this "switch" statement by "if" statements to increase readability.(Æóõµıÿÿÿÿ8º°ŸŒ…/
-C	java:S131"""Add a default case to this switch.(Æóõµıÿÿÿÿ8à‹Œ…/
-?
-java:S1659""Declare "dirY" on a separate line.(Š÷¿¨8¬§™Œ…/
-E
-java:S1068"(Remove this unused "dirX" private field.(Š÷¿¨8¬§™Œ…/
+]	java:S125"<This block of commented-out lines of code should be removed.(Îîâ°üÿÿÿÿ8ˆ¢ªúŒ/

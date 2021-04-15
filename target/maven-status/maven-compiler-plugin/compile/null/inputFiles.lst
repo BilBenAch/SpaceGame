@@ -1,6 +1,16 @@
+<<<<<<< HEAD
 C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\Main.java
 C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\sprites\Disparo.java
 C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\sprites\Sprite.java
 C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\sprites\Player.java
 C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\controller\GameWindow.java
 C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\sprites\Enemy.java
+=======
+C:\Users\Antonio\Documents\DAM\M05 Entornos de desarrollo\IdeaProjects\SpaceGame\src\main\java\sprites\Sprite.java
+C:\Users\Antonio\Documents\DAM\M05 Entornos de desarrollo\IdeaProjects\SpaceGame\src\main\java\AsteroidsGame.java
+C:\Users\Antonio\Documents\DAM\M05 Entornos de desarrollo\IdeaProjects\SpaceGame\src\main\java\controller\GameWindow.java
+C:\Users\Antonio\Documents\DAM\M05 Entornos de desarrollo\IdeaProjects\SpaceGame\src\main\java\sprites\Ship.java
+C:\Users\Antonio\Documents\DAM\M05 Entornos de desarrollo\IdeaProjects\SpaceGame\src\main\java\sprites\Enemy.java
+C:\Users\Antonio\Documents\DAM\M05 Entornos de desarrollo\IdeaProjects\SpaceGame\src\main\java\sprites\Character.java
+C:\Users\Antonio\Documents\DAM\M05 Entornos de desarrollo\IdeaProjects\SpaceGame\src\main\java\sprites\Player.java
+>>>>>>> 53f822e82a4e7ffef865a347869bba32b0534656

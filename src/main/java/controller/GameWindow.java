@@ -13,6 +13,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
@@ -21,104 +22,95 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
+import javafx.stage.Stage;
 import javafx.util.Duration;
-import sprites.Disparo;
 import sprites.Enemy;
-import sprites.Player;
+//import sprites.Player;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class GameWindow implements Initializable {
     @FXML
     Canvas canvas;
 
-    private Scene scene;
-    private Player player;
-    private Disparo disparo;
+    public static int WIDTH = 600;
+    public static int HEIGHT = 600;
+    Scene scene;
+    Stage primaryStage;
+    //private Player player;
     private GraphicsContext gc;
-    private List<Enemy> enemies;
+    private Enemy[] enemies;
 
-    //meteoritos
-//    Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0), new EventHandler<ActionEvent>() {
-//        @Override
-//        public void handle(ActionEvent event) {
-//            for (int i = 0; i < enemies.size(); i++) {
-//                enemies.get(i).clear(gc);
-//                enemies.get(i).move();
-//                if (enemies.get(i).getBoundary().intersects(player.getBoundary())) {
-//                    enemies.get(i).setY(Math.random() + 20);
-//                    player.clear(gc);
-////                    player.setImage(new Image("sprites/explosion1.jpg"));
-//                }
-//                enemies.get(i).render(gc);
-//            }
-//        }
-//    })
-//    );
+    Map<KeyCode, Boolean> pressedKeys = new HashMap<>();
 
-    //disparos
-//    Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(0.0017), new EventHandler<ActionEvent>() {
-//        @Override
-//        public void handle(ActionEvent event) {
-//            disparo.clear(gc);
-//            disparo.move();
-//            disparo.render(gc);
-//        }
-//    })
-//    );
+    public void setScene(Scene sc) {
+        this.scene = sc;
+
+        scene.setOnKeyPressed(event -> {
+            pressedKeys.put(event.getCode(), Boolean.TRUE);
+        });
+
+        scene.setOnKeyReleased(event -> {
+            pressedKeys.put(event.getCode(), Boolean.FALSE);
+        });
+    }
+
+
+
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         gc = canvas.getGraphicsContext2D();
         gc.setFill(Color.BLACK);
-        player = new Player(new ImageView(new Image("sprites/player_ship.png")), 0, 0);
-//        disparo = new Disparo(new Image("sprites/player_laser.png"));
-//        player.setImage(new Image("sprites/player_ship.png"));
-//        enemies = new ArrayList<>();
-//        for (int i = 0; i < 3; i++) {
-//            enemies.add(new Enemy(new Image("sprites/rock1.png")));
-//            enemies.add(new Enemy(new Image("sprites/rock3.png")));
-//        }
-//        player.render(gc);
-    //        timeline.setCycleCount(Timeline.INDEFINITE);
-    //        timeline.play();
-    //        timeline2.setCycleCount(Timeline.INDEFINITE);
-    //        timeline2.play();
+        //player = new Player(new ImageView(new Image("sprites/player_ship.png")), WIDTH/2, HEIGHT/2);
+        //player.setImage(new Image("sprites/player_ship.png"));
+        enemies = new Enemy[5];
+        for (int i = 0; i < enemies.length; i++) {
+            enemies[i] = new Enemy(new Image("sprites/rock1.png"));
+        }
+        //player.render(gc);
+        //timeline.setCycleCount(Timeline.INDEFINITE);
+        //timeline.play();
 
+        new AnimationTimer() {
+
+            @Override
+            public void handle(long now) {
+
+                if(pressedKeys.getOrDefault(KeyCode.LEFT, false)) {
+                    //player.turnLeft();
+                }
+
+                if(pressedKeys.getOrDefault(KeyCode.RIGHT, false)) {
+                    //player.turnRight();
+                }
+
+                if(pressedKeys.getOrDefault(KeyCode.UP, false)) {
+                    //player.accelerate();
+                }
+
+                //player.move();
+                //player.render(gc);
+            }
+        }.start();
 
 
     }
 
-    public void setScene(Scene sc) {
-        scene = sc;
-        ImagePattern pattern = new ImagePattern(new Image("sprites/background.png"));
-        scene.setFill(pattern);
-        scene.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                Point2D point = new Point2D(mouseEvent.getX(), mouseEvent.getY());
-                System.out.println("click");
-            }
-        });
 
-        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent keyEvent) {
-                System.out.println(keyEvent.getCode().toString());
-                player.clear(gc);
-                player.setDirection(keyEvent.getCode().toString());
-                player.render(gc);
-//                disparo.clear(gc);
-//                disparo.setDirection(keyEvent.getCode().toString());
-//                disparo.render(gc);
-            }
-        });
+    public void setStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
     }
 
+    public Scene getScene() {
+        return scene;
+    }
+
+    public Stage getPrimaryStage() {
+        return primaryStage;
+    }
 }
-
-

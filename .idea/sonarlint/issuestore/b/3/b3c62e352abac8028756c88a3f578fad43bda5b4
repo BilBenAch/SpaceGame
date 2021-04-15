@@ -1,34 +1,24 @@
 
-Y
-java:S1128"7Remove this unused import 'javafx.scene.canvas.Canvas'.(á­Š©üÿÿÿÿ8¼·Ÿ‚…/
-?
-java:S1659""Declare "posY" on a separate line.(èÂŞ»8˜Ğû‚…/
-E
-java:S1068"(Remove this unused "dirY" private field.(Š÷¿¨8˜Ğû‚…/
->
-java:S1170"!Make this final field static too.(şÒØÜ8˜Ğû‚…/
-L
-java:S1068"/Remove this unused "NUM_SPRITES" private field.(şÒØÜ8‘ˆ®ƒ…/
-?
-java:S1659""Declare "velY" on a separate line.(èÂŞ»8˜Ğû‚…/
-E
-java:S1068"(Remove this unused "dirX" private field.(Š÷¿¨8Ã““‹…/
-A
-java:S1659"$Declare "height" on a separate line.(èÂŞ»8˜Ğû‚…/
-X	java:S125?"<This block of commented-out lines of code should be removed.(ÂîËĞ8˜Ğû‚…/
-@
-java:S1659"#Declare "width" on a separate line.(èÂŞ»8˜Ğû‚…/
-Z
-java:S1128"8Remove this unused import 'javafx.scene.input.KeyEvent'.(¦¶ Æøÿÿÿÿ8‰»‚…/
-c
-java:S1126W"AReplace this if-then-else statement by a single return statement.(äÎšºøÿÿÿÿ8˜Ğû‚…/
-C	java:S131\""Add a default case to this switch.(Æóõµıÿÿÿÿ8˜Ğû‚…/
-r	java:S116"VRename this field "NUM_SPRITES" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şÒØÜ8˜Ğû‚…/
-?
-java:S1659""Declare "velX" on a separate line.(èÂŞ»8˜Ğû‚…/
-S
-java:S1128"6Remove this unused import 'javafx.event.EventHandler'.(º»û˜8‰»‚…/
+V
+java:S1128"<Remove this unused import 'javafx.scene.SnapshotParameters'.(ÏãÃg8Ø¥éÏ†/
+R
+java:S1128"7Remove this unused import 'javafx.scene.input.KeyCode'.(ûÊ¢¶8‰»‚…/
+`
+java:S1128"@Remove this unused import 'javafx.scene.canvas.GraphicsContext'.(áÇç—üÿÿÿÿ8Ø¥éÏ†/
 T
-java:S1128"7Remove this unused import 'javafx.scene.input.KeyCode'.(ûÊ¢¶8‰»‚…/
-?
-java:S1659""Declare "dirY" on a separate line.(Š÷¿¨8˜Ğû‚…/
+java:S1128"4Remove this unused import 'javafx.geometry.Point2D'.(¦¨–íûÿÿÿÿ8Ø¥éÏ†/
+S
+java:S1128"8Remove this unused import 'javafx.geometry.Rectangle2D'.(ÔÕîå8Ø¥éÏ†/
+I
+java:S1128".Remove this unused import 'javafx.scene.Node'.(ÑÖ¬ï8›øèÏ†/
+W
+java:S1128"7Remove this unused import 'javafx.scene.canvas.Canvas'.(á­Š©üÿÿÿÿ8¼·Ÿ‚…/
+X
+java:S1128"8Remove this unused import 'javafx.scene.input.KeyEvent'.(¦¶ Æøÿÿÿÿ8‰»‚…/
+V	java:S125"<This block of commented-out lines of code should be removed.(„§Ìš8Â¶›úŒ/
+Q
+java:S1128"6Remove this unused import 'javafx.event.EventHandler'.(º»û˜8‰»‚…/
+P
+java:S1128"5Remove this unused import 'javafx.scene.paint.Color'.(Ïî£à8Ø¥éÏ†/
+P
+java:S1128"5Remove this unused import 'javafx.scene.image.Image'.(‰¿½Ç8´„·Ğ†/

@@ -1,10 +1,11 @@
+sprites\Projectile.class
 controller\GameWindow.class
 sprites\Sprite.class
-controller\GameWindow$2.class
-Main.class
+sprites\Asteroid.class
+main\AsteroidsGame.class
+sprites\PolygonFactory.class
+sprites\Character.class
 sprites\Enemy.class
-sprites\Disparo.class
-controller\GameWindow$3.class
+sprites\Ship.class
 controller\GameWindow$1.class
-sprites\Player.class
-controller\GameWindow$4.class
+main\AsteroidsGame$1.class

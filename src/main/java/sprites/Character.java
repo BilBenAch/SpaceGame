@@ -1,26 +1,42 @@
 package sprites;
 
 import javafx.geometry.Point2D;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.shape.Polygon;
-
+import javafx.scene.shape.Shape;
+import main.AsteroidsGame;
 
 public abstract class Character {
 
-    private ImageView character;
+    private Polygon character;
     private Point2D movement;
+    private boolean alive;
 
-    public Character(ImageView character, int x, int y) {
-        this.character = character;
+    public Character(Polygon polygon, int x, int y) {
+        this.character = polygon;
         this.character.setTranslateX(x);
         this.character.setTranslateY(y);
 
         this.movement = new Point2D(0, 0);
     }
 
-    public ImageView getCharacter() {
+    public Polygon getCharacter() {
         return character;
+    }
+
+    public Point2D getMovement() {
+        return movement;
+    }
+
+    public void setMovement(Point2D movement) {
+        this.movement = movement;
+    }
+
+    public boolean isAlive() {
+        return alive;
+    }
+
+    public void setAlive(boolean alive) {
+        this.alive = alive;
     }
 
     public void turnLeft() {
@@ -34,6 +50,22 @@ public abstract class Character {
     public void move() {
         this.character.setTranslateX(this.character.getTranslateX() + this.movement.getX());
         this.character.setTranslateY(this.character.getTranslateY() + this.movement.getY());
+
+        if (this.character.getTranslateX() < 0) {
+            this.character.setTranslateX(this.character.getTranslateX() + AsteroidsGame.WIDTH);
+        }
+
+        if (this.character.getTranslateX() > AsteroidsGame.WIDTH) {
+            this.character.setTranslateX(this.character.getTranslateX() % AsteroidsGame.WIDTH);
+        }
+
+        if (this.character.getTranslateY() < 0) {
+            this.character.setTranslateY(this.character.getTranslateY() + AsteroidsGame.HEIGHT);
+        }
+
+        if (this.character.getTranslateY() > AsteroidsGame.HEIGHT) {
+            this.character.setTranslateY(this.character.getTranslateY() % AsteroidsGame.HEIGHT);
+        }
     }
 
     public void accelerate() {
@@ -44,5 +76,10 @@ public abstract class Character {
         changeY *= 0.05;
 
         this.movement = this.movement.add(changeX, changeY);
+    }
+
+    public boolean collide(Character other) {
+        Shape collisionArea = Shape.intersect(this.character, other.getCharacter());
+        return collisionArea.getBoundsInLocal().getWidth() != -1;
     }
 }

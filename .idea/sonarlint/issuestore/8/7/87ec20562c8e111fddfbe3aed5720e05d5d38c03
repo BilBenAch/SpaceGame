@@ -1,32 +1,62 @@
 
-G
-java:S1481h"*Remove this unused "point" local variable.(’ç–„8¦ª­……/
-[
-java:S1128"9Remove this unused import 'javafx.scene.image.ImageView'.(áÿ®Ãüÿÿÿÿ8ıŠ„¬†/
-V
-java:S1854h"9Remove this useless assignment to local variable "point".(’ç–„8¦ª­……/
-J
-java:S1604?"(Make this anonymous inner class a lambda(·Ùà¿şÿÿÿÿ8è¦¼Œ…/
-e
-java:S1128"CRemove this unused import 'javafx.scene.layout.BackgroundPosition'.(ãØ­ùÿÿÿÿ8ğáµ†…/
-^
-java:S1128"<Remove this unused import 'javafx.animation.AnimationTimer'.(•ïÍ¥ÿÿÿÿÿ8ù°ã„…/
-X	java:S125t"<This block of commented-out lines of code should be removed.(¦íÌ­8ÛŒ®ı…/
-U	java:S106p"9Replace this use of System.out or System.err by a logger.( ùÈâ8¦ª­……/
-q
-java:S1450&"TRemove the "scene" field and declare it as a local variable in the relevant methods.(÷‘éÑ8éÑ……/
+W
+java:S1128"5Remove this unused import 'javafx.event.ActionEvent'.(î•¯¼ıÿÿÿÿ8¶ÈÙÑ†/
+A
+java:S1640/"Convert this Map to an EnumMap.(õ™Ìùşÿÿÿÿ8˜— úŒ/
+n
+java:S1450,"QRemove the "gc" field and declare it as a local variable in the relevant methods.(º§¢8™— úŒ/
+I
+java:S16028",Remove useless curly braces around statement(î§„Ù8™— úŒ/
 b
-java:S1128"@Remove this unused import 'javafx.scene.layout.BackgroundImage'.(Óúäİûÿÿÿÿ8ğáµ†…/
-]	java:S1256"<This block of commented-out lines of code should be removed.(ºíˆ†ùÿÿÿÿ8Á¹“ª†/
-]
-java:S1128";Remove this unused import 'javafx.scene.layout.Background'.(¤ä—ıÿÿÿÿ8ğáµ†…/
-E
-java:S1604m"(Make this anonymous inner class a lambda(ò™ªÄ8¦ª­……/
+java:S1128"@Remove this unused import 'javafx.scene.layout.BackgroundImage'.(Óúäİûÿÿÿÿ8˜— úŒ/
+W	java:S125]"<This block of commented-out lines of code should be removed.( òËt8™— úŒ/
+n
+java:S1104'"QMake WIDTH a static final constant or non-public and provide accessors if needed.(â«´è8˜— úŒ/
 ^
-java:S1128"ARemove this unused import 'javafx.scene.layout.BackgroundRepeat'.(¹ÒŒù8ğáµ†…/
-U	java:S106i"9Replace this use of System.out or System.err by a logger.(ÿÒüë8¦ª­……/
-E
-java:S1604-"(Make this anonymous inner class a lambda(Ô†ª°8ïŸ‹…/
-J
-java:S1604e"(Make this anonymous inner class a lambda(Ïƒïıÿÿÿÿ8¦ª­……/
-W	java:S125W"<This block of commented-out lines of code should be removed.(´ÉÏ]8¹õÚ¬†/
+java:S1128"ARemove this unused import 'javafx.scene.layout.BackgroundRepeat'.(¹ÒŒù8˜— úŒ/
+W	java:S125K"<This block of commented-out lines of code should be removed.(® ŸA8™— úŒ/
+V
+java:S1128
+"4Remove this unused import 'javafx.geometry.Point2D'.(¦¨–íûÿÿÿÿ8¶ÈÙÑ†/
+e
+java:S1128"CRemove this unused import 'javafx.scene.layout.BackgroundPosition'.(ãØ­ùÿÿÿÿ8˜— úŒ/
+N
+java:S1128"1Remove this unused import 'javafx.util.Duration'.(ç½®§8˜— úŒ/
+N
+java:S16024",Remove useless curly braces around statement(¿ Æàÿÿÿÿÿ8™— úŒ/
+\
+java:S1128":Remove this unused import 'javafx.scene.input.MouseEvent'.(˜¬‹æÿÿÿÿÿ8˜— úŒ/
+]	java:S125U"<This block of commented-out lines of code should be removed.(”Û‘ùúÿÿÿÿ8™— úŒ/
+m
+java:S3008'"PRename this field "WIDTH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â«´è8™— úŒ/
+Z
+java:S1128"8Remove this unused import 'javafx.scene.input.KeyEvent'.(¦¶ Æøÿÿÿÿ8˜— úŒ/
+t
+java:S1104("RMake HEIGHT a static final constant or non-public and provide accessors if needed.(ñŒ¸‡üÿÿÿÿ8˜— úŒ/
+x
+java:S1450-"VRemove the "enemies" field and declare it as a local variable in the relevant methods.(§ÑöÙúÿÿÿÿ8™— úŒ/
+X	java:S125"<This block of commented-out lines of code should be removed.(â«ìŸ8˜— úŒ/
+X	java:S125+"<This block of commented-out lines of code should be removed.(¬Æ†¸8™— úŒ/
+L
+java:S5411X"*Use the primitive boolean expression here.(‰õ¶±ûÿÿÿÿ8˜— úŒ/
+]	java:S125`"<This block of commented-out lines of code should be removed.(Èøäµùÿÿÿÿ8™— úŒ/
+]	java:S125Y"<This block of commented-out lines of code should be removed.(ö·¸Çÿÿÿÿÿ8™— úŒ/
+N
+java:S1444(",Make this "public static HEIGHT" field final(ñŒ¸‡üÿÿÿÿ8˜— úŒ/
+G
+java:S5411\"*Use the primitive boolean expression here.(¦õéš8˜— úŒ/
+]
+java:S1128";Remove this unused import 'javafx.scene.layout.Background'.(¤ä—ıÿÿÿÿ8˜— úŒ/
+X	java:S125E"<This block of commented-out lines of code should be removed.(š–·è8™— úŒ/
+H
+java:S1444'"+Make this "public static WIDTH" field final(â«´è8˜— úŒ/
+S
+java:S1128"6Remove this unused import 'javafx.event.EventHandler'.(º»û˜8¶ÈÙÑ†/
+R
+java:S1128"6Remove this unused import 'javafx.animation.KeyFrame'.(æ™†v8¶ÈÙÑ†/
+s
+java:S3008("QRename this field "HEIGHT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñŒ¸‡üÿÿÿÿ8™— úŒ/
+G
+java:S5411T"*Use the primitive boolean expression here.(ŠÈÙÂ8˜— úŒ/
+X
+java:S1128"<Remove this unused import 'javafx.scene.paint.ImagePattern'.(áººr8˜— úŒ/

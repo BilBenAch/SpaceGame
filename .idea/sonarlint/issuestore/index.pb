@@ -1,8 +1,6 @@
 
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-G
-src/main/java/Main.java,e\4\e44a8606ce010ad9b89aafdfcee2ab49afbf6d10
 X
 (src/main/java/controller/GameWindow.java,8\7\87ec20562c8e111fddfbe3aed5720e05d5d38c03
 Q
@@ -13,3 +11,15 @@ P
  src/main/java/sprites/Enemy.java,6\e\6ebba05f65dca4bf8c27fa916ffc2d517f9dd3c0
 R
 "src/main/java/sprites/Disparo.java,8\f\8fc7f0bd91681af938cb15d8e92ee3c2649bda42
+U
+%src/main/java/main/AsteroidsGame.java,4\0\40126d7599bbef7bc8221f6545391acd32607aad
+T
+$src/main/java/sprites/Character.java,3\0\30ae11ab3eb2e155271e89fa8b7ae8a5edf251ce
+U
+%src/main/java/sprites/Projectile.java,b\8\b87d9e00dd32dcb5f74319d2629f9162448473c7
+O
+src/main/java/sprites/Ship.java,5\8\58661fcfb0adbc1e343a09bfaf4c7d9ef86d0d7c
+Y
+)src/main/java/sprites/PolygonFactory.java,8\1\813f616be170cd0d04d8d36d9167d67277473e36
+S
+#src/main/java/sprites/Asteroid.java,1\d\1d9aa88e6a57d7e8ee6109f73d9f373d538ceb6c
