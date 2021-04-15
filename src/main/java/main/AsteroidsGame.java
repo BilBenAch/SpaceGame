@@ -1,16 +1,10 @@
 package main;
 
-import controller.GameWindow;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Point2D;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Polygon;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sprites.Asteroid;
@@ -34,17 +28,16 @@ public class AsteroidsGame extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-
         Pane pane = new Pane();
         pane.setPrefSize(WIDTH, HEIGHT);
 
         Text scoreboard = new Text(10, 20, "Points: 0");
+        scoreboard.setStyle("-fx-text-fill: white; -fx-font-size: 20px;");
         pane.getChildren().add(scoreboard);
 
         AtomicInteger points = new AtomicInteger();
 
-        Ship ship = new Ship(WIDTH / 2, HEIGHT / 2);
-        List<Projectile> projectiles = new ArrayList<>();
+        Ship ship = new Ship(WIDTH / 2, HEIGHT / 2, pane);
 
         List<Asteroid> asteroids = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
@@ -58,6 +51,7 @@ public class AsteroidsGame extends Application {
         asteroids.forEach(asteroid -> pane.getChildren().add(asteroid.getCharacter()));
 
         Scene scene = new Scene(pane);
+        scene.getStylesheets().addAll("style.css");
 
         Map<KeyCode, Boolean> pressedKeys = new HashMap<>();
 
@@ -86,40 +80,33 @@ public class AsteroidsGame extends Application {
                     ship.accelerate();
                 }
 
-                if (pressedKeys.getOrDefault(KeyCode.SPACE, false) && projectiles.size() < 15) {
-                    // we shoot
-                    Projectile projectile = new Projectile((int) ship.getCharacter().getTranslateX(), (int) ship.getCharacter().getTranslateY());
-                    projectile.getCharacter().setRotate(ship.getCharacter().getRotate());
-                    projectiles.add(projectile);
-
-                    projectile.accelerate();
-                    projectile.setMovement(projectile.getMovement().normalize().multiply(3));
-
-                    pane.getChildren().add(projectile.getCharacter());
+                if (pressedKeys.getOrDefault(KeyCode.SPACE, false) && ship.getProjectiles().size() < 5) {
+                    ship.shoot();
                 }
 
                 ship.move();
                 asteroids.forEach(asteroid -> asteroid.move());
-                projectiles.forEach(projectile -> projectile.move());
+                ship.getProjectiles().forEach(projectile -> projectile.move());
 
-                projectiles.forEach(projectile -> {
+                ship.getProjectiles().forEach(projectile -> {
+
                     asteroids.forEach(asteroid -> {
-                        if (projectile.collide(asteroid)){
+                        if (projectile.collide(asteroid)) {
                             projectile.setAlive(false);
                             asteroid.setAlive(false);
                         }
                     });
-                if (!projectile.isAlive()){
-                    scoreboard.setText("Points: " + points.addAndGet(100));
-                }
+                    if (!projectile.isAlive()) {
+                        scoreboard.setText("Points: " + points.addAndGet(100));
+                    }
                 });
 
 
-                projectiles.stream()
+                ship.getProjectiles().stream()
                         .filter(projectile -> !projectile.isAlive())
                         .forEach(projectile -> pane.getChildren().remove(projectile.getCharacter()));
 
-                projectiles.removeAll(projectiles.stream()
+                ship.getProjectiles().removeAll(ship.getProjectiles().stream()
                         .filter(projectile -> !projectile.isAlive())
                         .collect(Collectors.toList()));
 
