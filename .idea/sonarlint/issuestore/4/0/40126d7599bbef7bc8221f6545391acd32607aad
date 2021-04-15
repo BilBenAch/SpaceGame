@@ -1,50 +1,58 @@
 
-k
-java:S3008"PRename this field "WIDTH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â«´è8ñß¡úŒ/
-q
-java:S3008"QRename this field "HEIGHT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñŒ¸‡üÿÿÿÿ8ñß¡úŒ/
-E
-java:S5411"*Use the primitive boolean expression here.(ŠÈÙÂ8ñß¡úŒ/
+I
+java:S1602O",Remove useless curly braces around statement(î§„Ù8’ß˜/
 L
-java:S1128"3Remove this unused import 'javafx.fxml.FXMLLoader'.(À‡ô³úÿÿÿÿ
-?
-java:S1640"Convert this Map to an EnumMap.(õ™Ìùşÿÿÿÿ8ñß¡úŒ/
-E
-java:S5411"*Use the primitive boolean expression here.(¦õéš8ñß¡úŒ/
-J
-java:S1128"6Remove this unused import 'javafx.scene.shape.Circle'.(ÃÁò«
-J
-java:S5411"*Use the primitive boolean expression here.(‘¿±‡şÿÿÿÿ8¢©ô‚/
-l
-java:S1104"QMake WIDTH a static final constant or non-public and provide accessors if needed.(â«´è8ñß¡úŒ/
-r
-java:S1104"RMake HEIGHT a static final constant or non-public and provide accessors if needed.(ñŒ¸‡üÿÿÿÿ8ñß¡úŒ/
+java:S5411d"*Use the primitive boolean expression here.(‘¿±‡şÿÿÿÿ8’ß˜/
 L
-java:S1444",Make this "public static HEIGHT" field final(ñŒ¸‡üÿÿÿÿ8ñß¡úŒ/
-9
-java:S2119"Save and re-use this "Random".(–áÍÈ8ñß¡úŒ/
+java:S5411\"*Use the primitive boolean expression here.(‰õ¶±ûÿÿÿÿ8’ß˜/
+H
+java:S1444"+Make this "public static WIDTH" field final(â«´è8ñß¡úŒ/
+N
+java:S1128"3Remove this unused import 'javafx.fxml.FXMLLoader'.(À‡ô³úÿÿÿÿ
+I
+java:S1612q",Replace this lambda with a method reference.(ç€èÿ8ëí…/
+w
+java:S1104"UMake posicionX a static final constant or non-public and provide accessors if needed.(Ş¸õÓùÿÿÿÿ8…‡° /
+L
+java:S1444"/Make this "public static posicionY" field final(Şˆš­8¿Û° /
+n
+java:S1104"QMake WIDTH a static final constant or non-public and provide accessors if needed.(â«´è8ñß¡úŒ/
+G
+java:S5411`"*Use the primitive boolean expression here.(¦õéš8’ß˜/
+t
+java:S1104"RMake HEIGHT a static final constant or non-public and provide accessors if needed.(ñŒ¸‡üÿÿÿÿ8ñß¡úŒ/
+N
+java:S1444",Make this "public static HEIGHT" field final(ñŒ¸‡üÿÿÿÿ8ñß¡úŒ/
 F
-java:S1128"2Remove this unused import 'controller.GameWindow'.(“¶×
-O	java:S125"<This block of commented-out lines of code should be removed.(â«ìŸ
-P
-java:S1128"7Remove this unused import 'javafx.scene.shape.Polygon'.(ÑîÅ’üÿÿÿÿ
-D
-java:S1128"0Remove this unused import 'javafx.scene.Parent'.(²ä¡È
-M
-java:S1128"4Remove this unused import 'javafx.geometry.Point2D'.(¦¨–íûÿÿÿÿ
+java:S1128"0Remove this unused import 'javafx.scene.Parent'.(²ä¡È
+m
+java:S3008"PRename this field "WIDTH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â«´è8ñß¡úŒ/
+N
+java:S1602K",Remove useless curly braces around statement(¿ Æàÿÿÿÿÿ8’ß˜/
+Q	java:S125"<This block of commented-out lines of code should be removed.(â«ìŸ
+R
+java:S1128"7Remove this unused import 'javafx.scene.shape.Polygon'.(ÑîÅ’üÿÿÿÿ
+Q
+java:S1444"/Make this "public static posicionX" field final(Ş¸õÓùÿÿÿÿ8…‡° /
 r
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(×«£Âøÿÿÿÿ8ñß¡úŒ/
-G
-java:S1602",Remove useless curly braces around statement(î§„Ù8ñß¡úŒ/
-G
-java:S1612",Replace this lambda with a method reference.(ç€èÿ8¢©ô‚/
-G
-java:S1612",Replace this lambda with a method reference.(§²İĞ8ÆÙø‰/
-J
-java:S5411"*Use the primitive boolean expression here.(‰õ¶±ûÿÿÿÿ8ñß¡úŒ/
+java:S1104"UMake posicionY a static final constant or non-public and provide accessors if needed.(Şˆš­8¿Û° /
+A
+java:S1640I"Convert this Map to an EnumMap.(õ™Ìùşÿÿÿÿ8’ß˜/
+;
+java:S21195"Save and re-use this "Random".(–áÍÈ8â‡¿/
+O
+java:S1128"4Remove this unused import 'javafx.geometry.Point2D'.(¦¨–íûÿÿÿÿ
 L
-java:S1602",Remove useless curly braces around statement(¿ Æàÿÿÿÿÿ8ñß¡úŒ/
-F
-java:S1444"+Make this "public static WIDTH" field final(â«´è8ñß¡úŒ/
-f
-java:S1128"FRemove this unused import 'java.util.concurrent.atomic.AtomicInteger'.(¿êäœøÿÿÿÿ8ÜÃÓŠ/
+java:S1128"6Remove this unused import 'javafx.scene.shape.Circle'.(ÃÁò«
+s
+java:S3008"QRename this field "HEIGHT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñŒ¸‡üÿÿÿÿ8ñß¡úŒ/
+t
+java:S3776$"RRefactor this method to reduce its Cognitive Complexity from 28 to the 15 allowed.(×«£Âøÿÿÿÿ8ñß¡úŒ/
+]	java:S125:"<This block of commented-out lines of code should be removed.(‹¾«Ïøÿÿÿÿ8’ß˜/
+I
+java:S1612r",Replace this lambda with a method reference.(§²İĞ8’ß˜/
+H
+java:S1128"2Remove this unused import 'controller.GameWindow'.(“¶×
+Y	java:S125«"<This block of commented-out lines of code should be removed.(á¢¥8ÆÔÂ /
+G
+java:S5411X"*Use the primitive boolean expression here.(ŠÈÙÂ8’ß˜/

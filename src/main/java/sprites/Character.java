@@ -1,6 +1,7 @@
 package sprites;
 
 import javafx.geometry.Point2D;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Shape;
 import main.AsteroidsGame;
@@ -13,11 +14,13 @@ public abstract class Character {
 
     public Character(Polygon polygon, int x, int y) {
         this.character = polygon;
+        this.character.setStroke(Color.RED);
         this.character.setTranslateX(x);
         this.character.setTranslateY(y);
-
+        this.alive = true;
         this.movement = new Point2D(0, 0);
     }
+
 
     public Polygon getCharacter() {
         return character;

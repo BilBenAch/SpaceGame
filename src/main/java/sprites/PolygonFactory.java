@@ -5,11 +5,12 @@ import javafx.scene.shape.Polygon;
 
 public class PolygonFactory {
 
-    public Polygon createPolygon() {
+    public Polygon createPolygon(int asteroidSize) {
         Random rnd = new Random();
-
-        double size = 10 + rnd.nextInt(10);
-
+        double size = 15 + rnd.nextInt(15);
+        if(asteroidSize == 2) {
+            size = 12 + rnd.nextInt(12);
+        }
         Polygon polygon = new Polygon();
         double c1 = Math.cos(Math.PI * 2 / 5);
         double c2 = Math.cos(Math.PI / 5);

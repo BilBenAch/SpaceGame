@@ -13,6 +13,7 @@
 //        this.velX = 1.0f;
 //        this.velY = 0.5f;
 //        this.dirX = 1;
+
 //        this.dirY = 1;
 //    }
 //
