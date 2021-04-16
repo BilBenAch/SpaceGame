@@ -89,7 +89,6 @@ public class AsteroidsGame extends Application {
                 ship.getProjectiles().forEach(projectile -> projectile.move());
 
                 ship.getProjectiles().forEach(projectile -> {
-
                     asteroids.forEach(asteroid -> {
                         if (projectile.collide(asteroid)) {
                             projectile.setAlive(false);
