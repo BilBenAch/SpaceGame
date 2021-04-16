@@ -9,5 +9,6 @@ sprites\Character.class
 sprites\Enemy.class
 sprites\Ship.class
 controller\GameWindow$1.class
+controller\CharacterController.class
 main\AsteroidsGame$1.class
 sprites\Nivel.class

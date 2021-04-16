@@ -14,13 +14,14 @@ public abstract class Character {
 
     public Character(Polygon polygon, int x, int y) {
         this.character = polygon;
-        this.character.setStroke(Color.RED);
+        this.character.setRotate(-90);
+        this.character.setStroke(Color.WHITE);
+        this.character.setFill(Color.TRANSPARENT);
         this.character.setTranslateX(x);
         this.character.setTranslateY(y);
         this.alive = true;
         this.movement = new Point2D(0, 0);
     }
-
 
     public Polygon getCharacter() {
         return character;
