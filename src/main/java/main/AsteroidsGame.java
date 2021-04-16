@@ -149,6 +149,7 @@ public class AsteroidsGame extends Application {
                     }
                 });
 
+
                 projectiles.forEach(projectile -> {
                     asteroids2.forEach(asteroid -> {
                         if (projectile.collide(asteroid)){
@@ -177,19 +178,25 @@ public class AsteroidsGame extends Application {
                         .filter(asteroid -> !asteroid.isAlive())
                         .collect(Collectors.toList()));
 
+
 //                asteroids2.stream()
 //                        .filter(asteroid -> !asteroid.isAlive())
 //                        .forEach(asteroid -> pane.getChildren().remove(asteroid.getCharacter()));
 
-//                asteroids2.removeAll(asteroids.stream()
-//                        .filter(asteroid -> !asteroid.isAlive())
-//                        .collect(Collectors.toList()));
+
+                asteroids2.removeAll(asteroids.stream()
+                        .filter(asteroid -> !asteroid.isAlive())
+                        .collect(Collectors.toList()));
+
+
 
                 asteroids.forEach(asteroid -> {
                     if (ship.collide(asteroid)) {
                         stop();
                     }
                 });
+
+                //si colisiona paramos el juego
 //                asteroids2.forEach(asteroid -> {
 //                    if (ship.collide(asteroid)) {
 //                        stop();
