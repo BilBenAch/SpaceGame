@@ -9,7 +9,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sprites.Asteroid;
 //import sprites.Player;
-import sprites.Projectile;
 import sprites.Ship;
 
 import java.util.*;
@@ -51,7 +50,7 @@ public class AsteroidsGame extends Application {
         asteroids.forEach(asteroid -> pane.getChildren().add(asteroid.getCharacter()));
 
         Scene scene = new Scene(pane);
-        scene.getStylesheets().addAll("style.css");
+        scene.getStylesheets().addAll("styles/style.css");
 
         Map<KeyCode, Boolean> pressedKeys = new HashMap<>();
 
