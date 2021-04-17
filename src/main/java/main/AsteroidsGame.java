@@ -1,6 +1,7 @@
 package main;
 
 import controller.CheckCollision;
+import controller.Level;
 import controller.RemoveSprites;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
