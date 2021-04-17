@@ -1,10 +1,7 @@
 package sprites;
 
 import javafx.scene.layout.Pane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Polygon;
-
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,7 +1,5 @@
 package sprites;
 
-import javafx.scene.shape.Polygon;
-
 import java.util.Random;
 
 public class Asteroid extends Character {

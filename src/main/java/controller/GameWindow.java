@@ -11,7 +11,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sprites.Asteroid;
 import sprites.Ship;
-
 import java.net.URL;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
