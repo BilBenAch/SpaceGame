@@ -1,16 +1,18 @@
 package main;
 
+import controller.CheckCollision;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sprites.Asteroid;
-//import sprites.Player;
 import sprites.Projectile;
 import sprites.Ship;
+import sprites.ShipChunk;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -27,7 +29,7 @@ public class AsteroidsGame extends Application {
     }
 
     int maxProjectiles = 0;
-    int contadorTiempoRespawn = 0;
+//    int contadorTiempoRespawn = 0;
     //variable que crea los asteroides en base al nivel
     int nivel = 5;
     int temp;
@@ -36,7 +38,6 @@ public class AsteroidsGame extends Application {
 
     //boolean para que me cuenta el primer nivel
     boolean comprobarNivelPrimeraVez = true;
-
     @Override
     public void start(Stage stage) throws Exception {
 
@@ -60,7 +61,10 @@ public class AsteroidsGame extends Application {
         List<Projectile> projectiles = new ArrayList<>();
         List<Asteroid> asteroids = new ArrayList<>();
         List<Asteroid> asteroids2 = new ArrayList<>();
+        List<ShipChunk> shipChunks = new ArrayList<>();
 
+        CheckCollision checkCollision = new CheckCollision(asteroids
+        ,asteroids2,projectiles,ship,pane,scoreboard);
         for (int i = 0; i < 1; i++) {
             Random rnd = new Random();
             Asteroid asteroid = new Asteroid(rnd.nextInt(WIDTH / 3), rnd.nextInt(HEIGHT), 1);
@@ -95,9 +99,10 @@ public class AsteroidsGame extends Application {
 
         new AnimationTimer() {
 
+
             @Override
             public void handle(long now) {
-                contadorTiempoRespawn = 0;
+//                contadorTiempoRespawn = 0;
                 if (pressedKeys.getOrDefault(KeyCode.LEFT, false)) {
                     ship.turnLeft();
                 }
@@ -112,24 +117,30 @@ public class AsteroidsGame extends Application {
 
                 if (pressedKeys.getOrDefault(KeyCode.SPACE, false) && projectiles.size() < 5) {
 
-                    if (maxProjectiles % 5 == 0) {
+                    if (maxProjectiles % 10 == 0) {
 
                         Projectile projectile = new Projectile((int) ship.getCharacter().getTranslateX(), (int) ship.getCharacter().getTranslateY());
                         projectile.getCharacter().setRotate(ship.getCharacter().getRotate());
                         projectiles.add(projectile);
 
                         projectile.accelerate();
-                        projectile.setMovement(projectile.getMovement().normalize().multiply(3));
+                        projectile.setMovement(projectile.getMovement().normalize().multiply(2));
 
                         pane.getChildren().add(projectile.getCharacter());
                     }
                     maxProjectiles++;
+//                    System.out.println(projectiles.get(0).getTime());
+                }
+//                System.out.println(System.currentTimeMillis());
+
+                if(ship.isAlive()) {
+                    ship.move();
                 }
 
-                ship.move();
                 asteroids.forEach(asteroid -> asteroid.move());
                 projectiles.forEach(projectile -> projectile.move());
                 asteroids2.forEach(asteroid -> asteroid.move());
+
 
                 projectiles.forEach(projectile -> {
                     asteroids.forEach(asteroid -> {
@@ -153,13 +164,15 @@ public class AsteroidsGame extends Application {
 
                             pane.getChildren().add(asteroid2.getCharacter());
                             pane.getChildren().add(asteroid3.getCharacter());
-                            contadorTiempoRespawn = 1;
+//                            contadorTiempoRespawn = 1;
                         }
                     });
                     if (!projectile.isAlive()) {
                         scoreboard.setText("Points: " + points.addAndGet(100));
                     }
                 });
+
+
 
                 projectiles.forEach(projectile -> {
                     asteroids2.forEach(asteroid -> {
@@ -172,6 +185,8 @@ public class AsteroidsGame extends Application {
                         scoreboard.setText("Points: " + points.addAndGet(100));
                     }
                 });
+
+//                checkCollision.checkCollide();
 
                 projectiles.stream()
                         .filter(projectile -> !projectile.isAlive())
@@ -200,51 +215,64 @@ public class AsteroidsGame extends Application {
                 asteroids.forEach(asteroid -> {
                     if (ship.collide(asteroid)) {
                         System.out.println("has colisionado con 1");
+
+//                        ship.setAlive(false);
+//                        ship.setMovement(new Point2D(0, 0));
+//                        for (int i = 0; i < 20; i++) {
+//                            ShipChunk shipchunk = new ShipChunk(ship.getCharacter().getTranslateX(), ship.getCharacter().getTranslateY());
+//                            shipChunks.add(shipchunk);
+//                        }
+//                        shipChunks.forEach(shipchunk -> pane.getChildren().add(shipchunk.getCharacter()));
+//                        pane.getChildren().remove(ship.getCharacter());
 //                        stop();
                     }
                 });
+//                shipChunks.forEach(shipChunk -> shipChunk.move());
+
+
+
                 asteroids2.forEach(asteroid -> {
-                    if (ship.collide(asteroid) && contadorTiempoRespawn == 1) {
+                    if (ship.collide(asteroid)) {
                         System.out.println("has colisionado con 2");
 //                        stop();
                     }
                 });
 
-//                if(Math.random() < 0.005) {
-//                    Asteroid asteroid = new Asteroid(WIDTH, HEIGHT);
-//                    if(!asteroid.collide(ship)) {
-//                        asteroids.add(asteroid);
-//                        pane.getChildren().add(asteroid.getCharacter());
-//                    }
-//                }
-
-
-                if(comprobarNivelPrimeraVez){
-                        levelPanel.setText("Level: " + levels.addAndGet(1));
-                        comprobarNivelPrimeraVez = false;
+                if (comprobarNivelPrimeraVez) {
+                    levelPanel.setText("Level: " + levels.addAndGet(1));
+                    comprobarNivelPrimeraVez = false;
                 }
 //
                 //si ambos arrays estan vacíos se incrementa el nivel y se crean más asteroides
                 if (asteroids.isEmpty() && asteroids2.isEmpty()) {
 //                        System.out.println("entro 1");
-                        for (int i = 0; i < nivel; i++) {
-                            Asteroid asteroid = new Asteroid(WIDTH, HEIGHT, 1);
-                            asteroids.add(asteroid);
-                            pane.getChildren().add(asteroid.getCharacter());
+                    for (int i = 0; i < nivel; i++) {
+                        Asteroid asteroid = new Asteroid(WIDTH, HEIGHT, 1);
+                        asteroids.add(asteroid);
+                        pane.getChildren().add(asteroid.getCharacter());
 
-                        }
+                    }
                     //incrementamos el nivel y sumamos 1
                     levelPanel.setText("Level: " + levels.addAndGet(1));
 //                    System.out.println("entro 2 ");
                     comprobarIncrementoNivel = true;
-                    System.out.println("tamaño asteroide creado por nivel --> "+asteroids.size());
+                    System.out.println("tamaño asteroide creado por nivel --> " + asteroids.size());
                 }
                 //
-                if(comprobarIncrementoNivel) {
+                if (comprobarIncrementoNivel) {
                     temp = nivel;
                     nivel += temp;
                     comprobarIncrementoNivel = false;
                 }
+
+                //si no ha colisionado en 4 segundos se borra el disparo
+                projectiles.forEach(projectile -> {
+//                    System.out.println("ENTRO");
+//                    System.out.println((System.currentTimeMillis() - projectile.getTime()));
+                    if((System.currentTimeMillis() - projectile.getTime()) >= 4000){
+                        projectile.setAlive(false);
+                    }
+                });
 
 //                System.out.println("tamaño asteroide  --> "+asteroids.size());
 //                System.out.println("tamaño asteroides hijos  --> "+asteroids2.size());
