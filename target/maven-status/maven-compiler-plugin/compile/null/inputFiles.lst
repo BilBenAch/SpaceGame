@@ -1,16 +1,15 @@
-<<<<<<< HEAD
-C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\Main.java
-C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\sprites\Disparo.java
-C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\sprites\Sprite.java
-C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\sprites\Player.java
+C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\sprites\AsteroidController.java
+C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\sprites\Projectile.java
+C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\sprites\ShipChunk.java
+C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\sprites\Character.java
+C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\main\AsteroidsGame.java
 C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\controller\GameWindow.java
+C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\sprites\Level.java
+C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\sprites\Asteroid.java
+C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\controller\CharacterController.java
+C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\sprites\Ship.java
+C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\controller\CheckCollision.java
+C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\sprites\PolygonFactory.java
+C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\sprites\Sprite.java
+C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\controller\RemoveSprites.java
 C:\Users\bilal\IdeaProjects\JuegoJavaFX\src\main\java\sprites\Enemy.java
-=======
-C:\Users\Antonio\Documents\DAM\M05 Entornos de desarrollo\IdeaProjects\SpaceGame\src\main\java\sprites\Sprite.java
-C:\Users\Antonio\Documents\DAM\M05 Entornos de desarrollo\IdeaProjects\SpaceGame\src\main\java\AsteroidsGame.java
-C:\Users\Antonio\Documents\DAM\M05 Entornos de desarrollo\IdeaProjects\SpaceGame\src\main\java\controller\GameWindow.java
-C:\Users\Antonio\Documents\DAM\M05 Entornos de desarrollo\IdeaProjects\SpaceGame\src\main\java\sprites\Ship.java
-C:\Users\Antonio\Documents\DAM\M05 Entornos de desarrollo\IdeaProjects\SpaceGame\src\main\java\sprites\Enemy.java
-C:\Users\Antonio\Documents\DAM\M05 Entornos de desarrollo\IdeaProjects\SpaceGame\src\main\java\sprites\Character.java
-C:\Users\Antonio\Documents\DAM\M05 Entornos de desarrollo\IdeaProjects\SpaceGame\src\main\java\sprites\Player.java
->>>>>>> 53f822e82a4e7ffef865a347869bba32b0534656
