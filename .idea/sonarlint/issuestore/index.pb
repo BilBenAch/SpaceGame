@@ -27,3 +27,5 @@ P
  src/main/java/sprites/Nivel.java,f\c\fc9a3407c345a37bfa7d26f07a8e4f929e906805
 ]
 -src/main/java/sprites/AsteroidController.java,e\b\eb163acd43c80b7939e16a75623a512ce0801f4a
+a
+1src/main/java/controller/CharacterController.java,3\7\370aeb2da8176709f8e84a1f67fcc735cd69bd41

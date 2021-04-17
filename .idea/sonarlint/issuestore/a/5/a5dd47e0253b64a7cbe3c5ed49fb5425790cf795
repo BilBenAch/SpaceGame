@@ -1,11 +1,15 @@
 
-L
-java:S1172"*Remove this unused method parameter "dir".(³Ü”úşÿÿÿÿ8¬„ç……/
-[
-java:S5993"9Change the visibility of this constructor to "protected".(¡…µÌşÿÿÿÿ8¬„ç……/
+8
+java:S3626"Remove this redundant jump.(ûÁİ…8¬„ç……/
+c
+java:S1126>"AReplace this if-then-else statement by a single return statement.(äÎšºøÿÿÿÿ8¬„ç……/
 A
 java:S1659
 "$Declare "height" on a separate line.(ù¹æ8¬„ç……/
+[
+java:S5993"9Change the visibility of this constructor to "protected".(¡…µÌşÿÿÿÿ8¬„ç……/
+L
+java:S1172"*Remove this unused method parameter "dir".(³Ü”úşÿÿÿÿ8¬„ç……/
 ?
 java:S1659
 ""Declare "posY" on a separate line.(ù¹æ8¬„ç……/
@@ -14,7 +18,3 @@ java:S3626"Remove this redundant jump.(ûÁİ…8¬„ç……/
 ?
 java:S1659
 ""Declare "posX" on a separate line.(ù¹æ8¬„ç……/
-8
-java:S3626"Remove this redundant jump.(ûÁİ…8¬„ç……/
-c
-java:S1126>"AReplace this if-then-else statement by a single return statement.(äÎšºøÿÿÿÿ8¬„ç……/

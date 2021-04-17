@@ -1,34 +1,71 @@
 
-H
-java:S1444"+Make this "public static WIDTH" field final(â«´è8†–ï×/
-N
-java:S1444",Make this "public static HEIGHT" field final(ñŒ¸‡üÿÿÿÿ8†–ï×/
-A
-java:S16408"Convert this Map to an EnumMap.(õ™Ìùşÿÿÿÿ8†–ï×/
-G
-java:S5411G"*Use the primitive boolean expression here.(ŠÈÙÂ8†–ï×/
-L
-java:S5411K"*Use the primitive boolean expression here.(‰õ¶±ûÿÿÿÿ8†–ï×/
-G
-java:S5411O"*Use the primitive boolean expression here.(¦õéš8†–ï×/
-n
-java:S1104"QMake WIDTH a static final constant or non-public and provide accessors if needed.(â«´è8†–ï×/
-t
-java:S1104"RMake HEIGHT a static final constant or non-public and provide accessors if needed.(ñŒ¸‡üÿÿÿÿ8†–ï×/
-L
-java:S1128"/Remove this unused import 'sprites.Projectile'.(¦Ô”Ó8†–ï×/
-X	java:S125"<This block of commented-out lines of code should be removed.(â«ìŸ8†–ï×/
-m
-java:S3008"PRename this field "WIDTH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â«´è8†–ï×/
+V
+java:S1128"4Remove this unused import 'javafx.geometry.Point2D'.(¦¨–íûÿÿÿÿ8‰èÕÚ/
 s
-java:S3008"QRename this field "HEIGHT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñŒ¸‡üÿÿÿÿ8†–ï×/
-t
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(×«£Âøÿÿÿÿ8†–ï×/
-;
-java:S2119,"Save and re-use this "Random".(–áÍÈ8†–ï×/
+java:S3008"QRename this field "HEIGHT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñŒ¸‡üÿÿÿÿ8‰èÕÚ/
 N
-java:S1602:",Remove useless curly braces around statement(¿ Æàÿÿÿÿÿ8†–ï×/
+java:S1602N",Remove useless curly braces around statement(¿ Æàÿÿÿÿÿ8³ºîÚ/
+A
+java:S1640L"Convert this Map to an EnumMap.(õ™Ìùşÿÿÿÿ8³ºîÚ/
+G
+java:S5411\"*Use the primitive boolean expression here.(ŠÈÙÂ8³ºîÚ/
+N
+java:S1444",Make this "public static HEIGHT" field final(ñŒ¸‡üÿÿÿÿ8‰èÕÚ/
+w
+java:S1104"UMake posicionX a static final constant or non-public and provide accessors if needed.(Ş¸õÓùÿÿÿÿ8³ºîÚ/
+V	java:S106Á"9Replace this use of System.out or System.err by a logger.(àµ…¼8³ºîÚ/
+H
+java:S1444"+Make this "public static WIDTH" field final(â«´è8‰èÕÚ/
 I
-java:S1602>",Remove useless curly braces around statement(î§„Ù8†–ï×/
+java:S1612z",Replace this lambda with a method reference.(§²İĞ8³ºîÚ/
+m
+java:S3008"PRename this field "WIDTH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â«´è8‰èÕÚ/
+^	java:S125Â"<This block of commented-out lines of code should be removed.(È¾¼Ãüÿÿÿÿ8³ºîÚ/
+^	java:S125È"<This block of commented-out lines of code should be removed.(È¾¼Ãüÿÿÿÿ8³ºîÚ/
+X	java:S125>"<This block of commented-out lines of code should be removed.(”¾¨8³ºîÚ/
+U
+java:S1128"3Remove this unused import 'javafx.fxml.FXMLLoader'.(À‡ô³úÿÿÿÿ8‰èÕÚ/
+t
+java:S1104"RMake HEIGHT a static final constant or non-public and provide accessors if needed.(ñŒ¸‡üÿÿÿÿ8‰èÕÚ/
+S
+java:S1128"6Remove this unused import 'javafx.scene.shape.Circle'.(ÃÁò«8‰èÕÚ/
+T
+java:S1854="7Remove this useless assignment to local variable "rnd".(–áÍÈ8³ºîÚ/
+G
+java:S5411d"*Use the primitive boolean expression here.(¦õéš8³ºîÚ/
+L
+java:S1444"/Make this "public static posicionY" field final(Şˆš­8³ºîÚ/
+O
+java:S1128"2Remove this unused import 'controller.GameWindow'.(“¶×8‰èÕÚ/
+X	java:S125"<This block of commented-out lines of code should be removed.(â«ìŸ8‰èÕÚ/
+;
+java:S21198"Save and re-use this "Random".(–áÍÈ8³ºîÚ/
+X	java:S125G"<This block of commented-out lines of code should be removed.(€Œ‘æ8³ºîÚ/
+L
+java:S5411`"*Use the primitive boolean expression here.(‰õ¶±ûÿÿÿÿ8³ºîÚ/
 I
-java:S1612X",Replace this lambda with a method reference.(ç€èÿ8†–ï×/
+java:S1602R",Remove useless curly braces around statement(î§„Ù8³ºîÚ/
+Y	java:S125Ì"<This block of commented-out lines of code should be removed.(á¢¥8³ºîÚ/
+r
+java:S1104"UMake posicionY a static final constant or non-public and provide accessors if needed.(Şˆš­8³ºîÚ/
+N
+java:S1612{",Replace this lambda with a method reference.(Õ›şÉşÿÿÿÿ8³ºîÚ/
+E
+java:S1481="(Remove this unused "rnd" local variable.(–áÍÈ8³ºîÚ/
+t
+java:S3776'"RRefactor this method to reduce its Cognitive Complexity from 37 to the 15 allowed.(×«£Âøÿÿÿÿ8³ºîÚ/
+Y
+java:S1128"7Remove this unused import 'javafx.scene.shape.Polygon'.(ÑîÅ’üÿÿÿÿ8‰èÕÚ/
+G
+java:S5411h"*Use the primitive boolean expression here.(–ô”‚8³ºîÚ/
+Q
+java:S1444"/Make this "public static posicionX" field final(Ş¸õÓùÿÿÿÿ8³ºîÚ/
+;
+java:S2119="Save and re-use this "Random".(–áÍÈ8³ºîÚ/
+I
+java:S1612y",Replace this lambda with a method reference.(ç€èÿ8³ºîÚ/
+[	java:S106Ç"9Replace this use of System.out or System.err by a logger.(ŒÈâ¡ıÿÿÿÿ8³ºîÚ/
+n
+java:S1104"QMake WIDTH a static final constant or non-public and provide accessors if needed.(â«´è8‰èÕÚ/
+M
+java:S1128"0Remove this unused import 'javafx.scene.Parent'.(²ä¡È8‰èÕÚ/
