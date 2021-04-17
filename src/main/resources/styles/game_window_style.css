@@ -1,0 +1,14 @@
+.root{
+    -fx-background-image: url("/sprites/space_background.gif");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 600 600;
+    -fx-background-position: center center;
+
+}
+
+#scoreboard, #level{
+    -fx-fill: red;
+    -fx-font-size: 18px;
+    -fx-font-family: Consolas;
+    -fx-font-weight: bold;
+}

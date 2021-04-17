@@ -1,118 +1,147 @@
 package controller;
 
 import javafx.animation.AnimationTimer;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Point2D;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.ImagePattern;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
-import sprites.Enemy;
-//import sprites.Player;
+import sprites.Asteroid;
+import sprites.Ship;
 
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 public class GameWindow implements Initializable {
-    @FXML
-    Canvas canvas;
-
     public static int WIDTH = 600;
     public static int HEIGHT = 600;
+
     Scene scene;
     Stage primaryStage;
-    //private Player player;
-    private GraphicsContext gc;
-    private Enemy[] enemies;
 
-    Map<KeyCode, Boolean> pressedKeys = new HashMap<>();
+    @FXML
+    Pane pane;
 
-    public void setScene(Scene sc) {
-        this.scene = sc;
+    @FXML
+    Text scoreboard;
+    AtomicInteger points;
 
-        scene.setOnKeyPressed(event -> {
-            pressedKeys.put(event.getCode(), Boolean.TRUE);
-        });
+    @FXML
+    Text level;
+    AtomicInteger levelNumber;
 
-        scene.setOnKeyReleased(event -> {
-            pressedKeys.put(event.getCode(), Boolean.FALSE);
-        });
-    }
+    Ship ship;
+    List<Asteroid> asteroids;
 
-
-
-
+    Map<KeyCode, Boolean> pressedKeys;
 
     @Override
+    @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        gc = canvas.getGraphicsContext2D();
-        gc.setFill(Color.BLACK);
-        //player = new Player(new ImageView(new Image("sprites/player_ship.png")), WIDTH/2, HEIGHT/2);
-        //player.setImage(new Image("sprites/player_ship.png"));
-        enemies = new Enemy[5];
-        for (int i = 0; i < enemies.length; i++) {
-            enemies[i] = new Enemy(new Image("sprites/rock1.png"));
+        pressedKeys = new HashMap<>();
+
+        points = new AtomicInteger();
+        levelNumber = new AtomicInteger();
+
+        ship = new Ship(WIDTH / 2, HEIGHT / 2, pane);
+        asteroids = new ArrayList<>();
+
+        for (int i = 0; i < 5; i++) {
+            Random rnd = new Random();
+            Asteroid asteroid = new Asteroid(rnd.nextInt(WIDTH / 3), rnd.nextInt(HEIGHT));
+            asteroids.add(asteroid);
         }
-        //player.render(gc);
-        //timeline.setCycleCount(Timeline.INDEFINITE);
-        //timeline.play();
+
+        pane.getChildren().addAll(ship.getCharacter());
+        asteroids.forEach(asteroid -> pane.getChildren().add(asteroid.getCharacter()));
 
         new AnimationTimer() {
 
             @Override
             public void handle(long now) {
 
-                if(pressedKeys.getOrDefault(KeyCode.LEFT, false)) {
-                    //player.turnLeft();
+                if (pressedKeys.getOrDefault(KeyCode.LEFT, false)) {
+                    ship.turnLeft();
                 }
 
-                if(pressedKeys.getOrDefault(KeyCode.RIGHT, false)) {
-                    //player.turnRight();
+                if (pressedKeys.getOrDefault(KeyCode.RIGHT, false)) {
+                    ship.turnRight();
                 }
 
-                if(pressedKeys.getOrDefault(KeyCode.UP, false)) {
-                    //player.accelerate();
+                if (pressedKeys.getOrDefault(KeyCode.UP, false)) {
+                    ship.accelerate();
                 }
 
-                //player.move();
-                //player.render(gc);
+                if (pressedKeys.getOrDefault(KeyCode.SPACE, false) && ship.getProjectiles().size() < 5) {
+                    ship.shoot();
+                }
+
+                ship.move();
+                asteroids.forEach(asteroid -> asteroid.move());
+                ship.getProjectiles().forEach(projectile -> projectile.move());
+
+                ship.getProjectiles().forEach(projectile -> {
+                    asteroids.forEach(asteroid -> {
+                        if (projectile.collide(asteroid)) {
+                            projectile.setAlive(false);
+                            asteroid.setAlive(false);
+                        }
+                    });
+                    if (!projectile.isAlive()) {
+                        scoreboard.setText("Points: " + points.addAndGet(100));
+                    }
+                });
+
+                ship.getProjectiles().stream()
+                        .filter(projectile -> !projectile.isAlive())
+                        .forEach(projectile -> pane.getChildren().remove(projectile.getCharacter()));
+
+                ship.getProjectiles().removeAll(ship.getProjectiles().stream()
+                        .filter(projectile -> !projectile.isAlive())
+                        .collect(Collectors.toList()));
+
+                asteroids.stream()
+                        .filter(asteroid -> !asteroid.isAlive())
+                        .forEach(asteroid -> pane.getChildren().remove(asteroid.getCharacter()));
+                asteroids.removeAll(asteroids.stream()
+                        .filter(asteroid -> !asteroid.isAlive())
+                        .collect(Collectors.toList()));
+
+                asteroids.forEach(asteroid -> {
+                    if (ship.collide(asteroid)) {
+                        stop();
+                    }
+                });
             }
         }.start();
-
-
     }
-
 
     public void setStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
+    }
+
+    public Stage getPrimaryStage() {
+        return primaryStage;
+    }
+
+    public void setScene(Scene sc) {
+        this.scene = sc;
+
+        scene.setOnKeyPressed(event -> pressedKeys.put(event.getCode(), Boolean.TRUE));
+
+        scene.setOnKeyReleased(event -> pressedKeys.put(event.getCode(), Boolean.FALSE));
     }
 
     public Scene getScene() {
         return scene;
     }
 
-    public Stage getPrimaryStage() {
-        return primaryStage;
+    public void setPane(Parent root) {
+        this.pane = (Pane) root;
     }
 }
-
-

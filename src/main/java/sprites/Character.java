@@ -1,5 +1,6 @@
 package sprites;
 
+import controller.GameWindow;
 import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
@@ -56,19 +57,19 @@ public abstract class Character {
         this.character.setTranslateY(this.character.getTranslateY() + this.movement.getY());
 
         if (this.character.getTranslateX() < 0) {
-            this.character.setTranslateX(this.character.getTranslateX() + AsteroidsGame.WIDTH);
+            this.character.setTranslateX(this.character.getTranslateX() + GameWindow.WIDTH);
         }
 
-        if (this.character.getTranslateX() > AsteroidsGame.WIDTH) {
-            this.character.setTranslateX(this.character.getTranslateX() % AsteroidsGame.WIDTH);
+        if (this.character.getTranslateX() > GameWindow.WIDTH) {
+            this.character.setTranslateX(this.character.getTranslateX() % GameWindow.WIDTH);
         }
 
         if (this.character.getTranslateY() < 0) {
-            this.character.setTranslateY(this.character.getTranslateY() + AsteroidsGame.HEIGHT);
+            this.character.setTranslateY(this.character.getTranslateY() + GameWindow.HEIGHT);
         }
 
-        if (this.character.getTranslateY() > AsteroidsGame.HEIGHT) {
-            this.character.setTranslateY(this.character.getTranslateY() % AsteroidsGame.HEIGHT);
+        if (this.character.getTranslateY() > GameWindow.HEIGHT) {
+            this.character.setTranslateY(this.character.getTranslateY() % GameWindow.HEIGHT);
         }
     }
 
