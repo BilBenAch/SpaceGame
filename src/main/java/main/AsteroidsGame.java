@@ -94,7 +94,7 @@ public class AsteroidsGame extends Application {
 
             @Override
             public void handle(long now) {
-//                contadorTiempoRespawn = 0;
+
                 if (pressedKeys.getOrDefault(KeyCode.LEFT, false)) {
                     ship.turnLeft();
                 }
@@ -106,21 +106,22 @@ public class AsteroidsGame extends Application {
                 if (pressedKeys.getOrDefault(KeyCode.UP, false)) {
                     ship.accelerate();
                 }
+                if(ship.isAlive()) {
+                    if (pressedKeys.getOrDefault(KeyCode.SPACE, false) && projectiles.size() < 5) {
 
-                if (pressedKeys.getOrDefault(KeyCode.SPACE, false) && projectiles.size() < 5) {
+                        if (maxProjectiles % 10 == 0) {
 
-                    if (maxProjectiles % 10 == 0) {
+                            Projectile projectile = new Projectile((int) ship.getCharacter().getTranslateX(), (int) ship.getCharacter().getTranslateY());
+                            projectile.getCharacter().setRotate(ship.getCharacter().getRotate());
+                            projectiles.add(projectile);
 
-                        Projectile projectile = new Projectile((int) ship.getCharacter().getTranslateX(), (int) ship.getCharacter().getTranslateY());
-                        projectile.getCharacter().setRotate(ship.getCharacter().getRotate());
-                        projectiles.add(projectile);
+                            projectile.accelerate();
+                            projectile.setMovement(projectile.getMovement().normalize().multiply(2));
 
-                        projectile.accelerate();
-                        projectile.setMovement(projectile.getMovement().normalize().multiply(2));
-
-                        pane.getChildren().add(projectile.getCharacter());
+                            pane.getChildren().add(projectile.getCharacter());
+                        }
+                        maxProjectiles++;
                     }
-                    maxProjectiles++;
                 }
 //                System.out.println(System.currentTimeMillis());
 //                if (ship.isAlive()) {

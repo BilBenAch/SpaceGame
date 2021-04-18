@@ -9,8 +9,6 @@ import sprites.Ship;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static controller.GameWindow.HEIGHT;
-import static controller.GameWindow.WIDTH;
 
 public class CheckCollision {
     List<Asteroid> asteroids;
@@ -114,9 +112,8 @@ public class CheckCollision {
 //                    pane.getChildren().remove(ship.getCharacter());
 //                    Ship newShip = new Ship(WIDTH / 2, HEIGHT / 2);
 //                    pane.getChildren().add(newShip.getCharacter());
-//
 //                    newShip.move();
-////                    checkColitionBigAsteroidShip = true;
+//                    checkColitionBigAsteroidShip = true;
 //                    System.out.println("vidas ---> "+vidas);
 //                    vidas--;
 //                }

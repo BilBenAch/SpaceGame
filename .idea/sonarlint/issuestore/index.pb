@@ -4,13 +4,9 @@
 X
 (src/main/java/controller/GameWindow.java,8\7\87ec20562c8e111fddfbe3aed5720e05d5d38c03
 Q
-!src/main/java/sprites/Player.java,b\3\b3c62e352abac8028756c88a3f578fad43bda5b4
-Q
 !src/main/java/sprites/Sprite.java,a\5\a5dd47e0253b64a7cbe3c5ed49fb5425790cf795
 P
  src/main/java/sprites/Enemy.java,6\e\6ebba05f65dca4bf8c27fa916ffc2d517f9dd3c0
-R
-"src/main/java/sprites/Disparo.java,8\f\8fc7f0bd91681af938cb15d8e92ee3c2649bda42
 U
 %src/main/java/main/AsteroidsGame.java,4\0\40126d7599bbef7bc8221f6545391acd32607aad
 T
@@ -23,9 +19,17 @@ Y
 )src/main/java/sprites/PolygonFactory.java,8\1\813f616be170cd0d04d8d36d9167d67277473e36
 S
 #src/main/java/sprites/Asteroid.java,1\d\1d9aa88e6a57d7e8ee6109f73d9f373d538ceb6c
-P
- src/main/java/sprites/Nivel.java,f\c\fc9a3407c345a37bfa7d26f07a8e4f929e906805
 ]
 -src/main/java/sprites/AsteroidController.java,e\b\eb163acd43c80b7939e16a75623a512ce0801f4a
 a
 1src/main/java/controller/CharacterController.java,3\7\370aeb2da8176709f8e84a1f67fcc735cd69bd41
+T
+$src/main/java/sprites/ShipChunk.java,1\c\1cd1ba828ca9c857f9e8577cb30c339b4fb74085
+S
+#src/main/java/controller/Lifes.java,4\0\40bc79b131bc50e3919af73162397541f1b3b37f
+S
+#src/main/java/controller/Level.java,9\3\93678f981827802af317525117091057cabc5e65
+[
++src/main/java/controller/RemoveSprites.java,8\6\862c5be582f4f29af5e70f42a661d2a129a3a373
+\
+,src/main/java/controller/CheckCollision.java,f\5\f52b1a89d4bd1751fcd8ea9060b48fe83678ac19

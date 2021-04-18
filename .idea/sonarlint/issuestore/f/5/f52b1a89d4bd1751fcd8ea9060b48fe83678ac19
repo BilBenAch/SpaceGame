@@ -1,0 +1,14 @@
+
+V	java:S106’"9Replace this use of System.out or System.err by a logger.(¦œÌ¦8ßØ‘/
+]	java:S125C"<This block of commented-out lines of code should be removed.(Ó¶ûÜÿÿÿÿÿ8­‡’/
+U
+java:S1128"8Remove this unused import 'controller.GameWindow.WIDTH'.(Ì¿ëÜ8ˆÆ‘–/
+V
+java:S1128"9Remove this unused import 'controller.GameWindow.HEIGHT'.(±ÛÊî8ˆÆ‘–/
+]	java:S125r"<This block of commented-out lines of code should be removed.(›öÖşÿÿÿÿ8ˆÆ‘–/
+Y	java:S125€"<This block of commented-out lines of code should be removed.(âÂôã8ó€¶/
+W	java:S125g"<This block of commented-out lines of code should be removed.(†‰ŠJ8Ãóüƒ/
+Z	java:S106]"9Replace this use of System.out or System.err by a logger.(ÌéòÍıÿÿÿÿ8Ñ¤¥’/
+Z	java:S106K"9Replace this use of System.out or System.err by a logger.(ÌéòÍıÿÿÿÿ8­‡’/
+U	java:S106f"9Replace this use of System.out or System.err by a logger.(àµ…¼8Ãóüƒ/
+[	java:S106‰"9Replace this use of System.out or System.err by a logger.(ŒÈâ¡ıÿÿÿÿ8ó€¶/

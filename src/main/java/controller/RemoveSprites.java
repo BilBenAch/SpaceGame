@@ -8,6 +8,9 @@ import sprites.Ship;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static controller.GameWindow.HEIGHT;
+import static controller.GameWindow.WIDTH;
+
 public class RemoveSprites {
     List<Asteroid> asteroids;
     List<Asteroid> asteroidsDivision;
@@ -28,6 +31,7 @@ public class RemoveSprites {
         removeBigAsteroid();
         removeSmallAsteroid();
         removeProjectilAfterTime();
+//        removeShip();
     }
 
     public void removeProjectiles(){
@@ -68,4 +72,14 @@ public class RemoveSprites {
                 }
             });
         }
-}
+//        public void removeShip(){
+//            if(!ship.isAlive()){
+//                pane.getChildren().remove(ship.getCharacter());
+//                pane.getChildren().removeAll(ship.getCharacter());
+//                this.ship = new Ship(WIDTH / 2, HEIGHT / 2);
+//                pane.getChildren().add(this.ship.getCharacter());
+//                this.ship.setAlive(true);
+////                ship.move();
+//            }
+        }
+

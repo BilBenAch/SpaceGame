@@ -1,25 +1,0 @@
-
-S
-java:S1128"6Remove this unused import 'javafx.event.EventHandler'.(º»û˜8‰»‚…/
-K
-java:S1128".Remove this unused import 'javafx.scene.Node'.(ÑÖ¬ï8›øèÏ†/
-V
-java:S1128"4Remove this unused import 'javafx.geometry.Point2D'.(¦¨–íûÿÿÿÿ8Ø¥éÏ†/
-R
-java:S1128
-"5Remove this unused import 'javafx.scene.image.Image'.(‰¿½Ç8´„·Ğ†/
-Y
-java:S1128"7Remove this unused import 'javafx.scene.canvas.Canvas'.(á­Š©üÿÿÿÿ8¼·Ÿ‚…/
-U
-java:S1128"8Remove this unused import 'javafx.geometry.Rectangle2D'.(ÔÕîå8Ø¥éÏ†/
-T
-java:S1128"7Remove this unused import 'javafx.scene.input.KeyCode'.(ûÊ¢¶8‰»‚…/
-X
-java:S1128"<Remove this unused import 'javafx.scene.SnapshotParameters'.(ÏãÃg8Ø¥éÏ†/
-X	java:S125"<This block of commented-out lines of code should be removed.(„§Ìš8Â¶›úŒ/
-b
-java:S1128	"@Remove this unused import 'javafx.scene.canvas.GraphicsContext'.(áÇç—üÿÿÿÿ8Ø¥éÏ†/
-R
-java:S1128"5Remove this unused import 'javafx.scene.paint.Color'.(Ïî£à8Ø¥éÏ†/
-Z
-java:S1128"8Remove this unused import 'javafx.scene.input.KeyEvent'.(¦¶ Æøÿÿÿÿ8‰»‚…/
