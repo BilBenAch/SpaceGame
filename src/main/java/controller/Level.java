@@ -42,6 +42,7 @@ public class Level {
 
     //si ambos arrays estan vacíos se incrementa el nivel y se crean más asteroides
     if (asteroidsBigs.isEmpty() && asteroidsSmalls.isEmpty()) {
+      levelUp();
       for (int i = 0; i < level; i++) {
         Asteroid asteroid = new Asteroid(WIDTH, HEIGHT, 1);
         asteroidsBigs.add(asteroid);
@@ -51,15 +52,13 @@ public class Level {
       //incrementamos el nivel y sumamos 1
       levelPanel.setText("Level: " + levels.addAndGet(1));
       System.out.println("tamaño asteroide creado por nivel --> " + asteroidsBigs.size());
-      levelUp();
     }
 
   }
 
   //  metodo para incrementar nivel
   public void levelUp() {
-    temp = level;
-    level += temp;
+    level += 5;
   }
 
 }

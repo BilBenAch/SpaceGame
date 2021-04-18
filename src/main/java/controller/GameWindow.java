@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
@@ -13,15 +14,15 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sprites.Asteroid;
 import sprites.Ship;
-
 import java.net.URL;
 import java.util.*;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 public class GameWindow implements Initializable {
     public static int WIDTH = 600;
     public static int HEIGHT = 600;
+    private boolean gameStarted;
 
     Scene scene;
     Stage primaryStage;
@@ -37,6 +38,12 @@ public class GameWindow implements Initializable {
     Text level;
     AtomicInteger levelNumber;
 
+    @FXML
+    Button restart_button;
+
+    @FXML
+    Text game_over;
+
     Ship ship;
     List<Asteroid> asteroids;
     List<Asteroid> asteroids2;
@@ -44,7 +51,7 @@ public class GameWindow implements Initializable {
     //Comprobar colisiones
     CheckCollision checkCollision;
     //Eliminar items una vez colisonado
-    RemoveSprites removeSprites;
+    RemoveSprite removeSprites;
     //Generamos niveles
     Level levelLevel;
 
@@ -62,16 +69,25 @@ public class GameWindow implements Initializable {
     Media backgroundMusic;
     MediaPlayer mediaPlayer;
 
+    Life life;
 
     @Override
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        gameStarted = true;
         music = getClass().getClassLoader().getResource("sounds/space_battles_music.mp3").toExternalForm();
         backgroundMusic = new Media(music);
         mediaPlayer = new MediaPlayer(backgroundMusic);
-        //mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         pressedKeys = new HashMap<>();
+
+
+        restart_button.setDisable(true);
+        restart_button.setVisible(false);
+
+        game_over.setDisable(true);
+        game_over.setVisible(false);
 
         points = new AtomicInteger();
         levelNumber = new AtomicInteger();
@@ -81,9 +97,10 @@ public class GameWindow implements Initializable {
         asteroids2 = new ArrayList<>();
 
         checkCollision = new CheckCollision(asteroids, asteroids2, ship.getProjectiles(), ship, pane, scoreboard);
-        removeSprites = new RemoveSprites(asteroids, asteroids2, ship.getProjectiles(), ship, pane);
+        removeSprites = new RemoveSprite(asteroids, asteroids2, ship.getProjectiles(), ship, pane);
         levelLevel = new Level(asteroids, asteroids2, nivel, temp, level, pane, comprobarNivelPrimeraVez);
 
+        life = new Life(ship, pane);
 
         for (int i = 0; i < 5; i++) {
             Random rnd = new Random();
@@ -98,6 +115,23 @@ public class GameWindow implements Initializable {
 
             @Override
             public void handle(long now) {
+
+                if (checkCollision.life.getLifes() == 0){
+                    gameStarted = false;
+                    game_over.setVisible(true);
+                    game_over.setDisable(false);
+                    restart_button.setVisible(true);
+                    restart_button.setDisable(false);
+
+                    asteroids.forEach(asteroid -> asteroid.setAlive(false));
+                    asteroids2.forEach(asteroid -> asteroid.setAlive(false));
+                    removeSprites.remove();
+
+                }
+
+                if (gameStarted){
+                    start();
+                }
 
                 if (pressedKeys.getOrDefault(KeyCode.LEFT, false)) {
                     ship.turnLeft();
@@ -115,14 +149,16 @@ public class GameWindow implements Initializable {
                     ship.shoot();
                 }
 
-                if (pressedKeys.getOrDefault(KeyCode.M, false) && mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
+                if (pressedKeys.getOrDefault(KeyCode.M, false)) {
 
-                    mediaPlayer.stop();
-                    System.out.println(mediaPlayer.getStatus());
+                    if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
+                        mediaPlayer.pause();
+                    }
 
-                }
-                if (pressedKeys.getOrDefault(KeyCode.M, false) && mediaPlayer.getStatus() == MediaPlayer.Status.STOPPED){
-                    mediaPlayer.play();
+                    if (mediaPlayer.getStatus() == MediaPlayer.Status.PAUSED) {
+                        mediaPlayer.play();
+                    }
+
                 }
 
                 ship.move();
@@ -131,7 +167,7 @@ public class GameWindow implements Initializable {
                 ship.getProjectiles().forEach(projectile -> projectile.move());
 
                 if (!checkCollision.checkCollide()) {
-//                    stop();
+                    //stop();
                 }
                 //eliminamos sprites
                 removeSprites.remove();
@@ -172,7 +208,10 @@ public class GameWindow implements Initializable {
                     }
                 });*/
             }
+
+
         }.start();
+
     }
 
     public void setStage(Stage primaryStage) {
@@ -197,5 +236,26 @@ public class GameWindow implements Initializable {
 
     public void setPane(Parent root) {
         this.pane = (Pane) root;
+    }
+
+    public void newGame() {
+        ship.getCharacter().setTranslateX(WIDTH / 2);
+        ship.getCharacter().setTranslateY(HEIGHT / 2);
+        removeSprites.remove();
+        checkCollision.life.setLifes(3);
+        points.set(0);
+        levelNumber.set(1);
+        asteroids.forEach(asteroid -> asteroid.setAlive(true));
+        asteroids2.forEach(asteroid -> asteroid.setAlive(true));
+    }
+
+    public void onMouseClicked(){
+        newGame();
+        restart_button.setDisable(true);
+        restart_button.setVisible(false);
+        game_over.setDisable(true);
+        game_over.setVisible(false);
+        gameStarted = true;
+        System.out.println(gameStarted);
     }
 }
