@@ -8,7 +8,7 @@ public class PolygonFactory {
     public Polygon createPolygon(int asteroidSize) {
         Random rnd = new Random();
         double size = 15 + rnd.nextInt(15);
-        if(asteroidSize == 2) {
+        if (asteroidSize == 2) {
             size = 12 + rnd.nextInt(12);
         }
         Polygon polygon = new Polygon();

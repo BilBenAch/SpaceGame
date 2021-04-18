@@ -15,17 +15,17 @@ import java.util.ResourceBundle;
 
 public class AsteroidsNewGame implements Initializable {
 
-    Stage stage;
-    Scene scene;
+    private Stage stage;
+    private Scene scene;
 
-    String cssGameWindow = getClass().getResource("/styles/game_window_style.css").toExternalForm();
-    GameWindow gameWindow;
-
-    @FXML
-    Text title;
+    private final String cssGameWindow = getClass().getResource("/styles/game_window_style.css").toExternalForm();
+    private GameWindow gameWindow;
 
     @FXML
-    Button play_button;
+    private Text title;
+
+    @FXML
+    private Button play_button;
 
     @Override
     @FXML
@@ -40,9 +40,7 @@ public class AsteroidsNewGame implements Initializable {
         scene.getStylesheets().add(cssGameWindow);
         gameWindow.setScene(scene);
         gameWindow.setStage(stage);
-
         stage.getScene().setRoot(newRoot);
-
     }
 
     public Stage getStage() {

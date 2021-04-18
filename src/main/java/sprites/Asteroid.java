@@ -20,6 +20,7 @@ public class Asteroid extends Character {
 
         this.rotationalMovement = 0.5 - rnd.nextDouble();
     }
+
     @Override
     public void move() {
         super.move();

@@ -7,9 +7,9 @@ import java.util.List;
 
 public class Ship extends Character {
 
-    Pane pane;
-    List<Projectile> projectiles;
-    int maxProjectiles = 0;
+    private Pane pane;
+    private List<Projectile> projectiles;
+    private int maxProjectiles = 0;
 
     public Ship(int x, int y, Pane pane) {
         super(new Polygon(-5, -5, 10, 0, -5, 5), x, y);

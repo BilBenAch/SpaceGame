@@ -3,22 +3,19 @@ package controller;
 import javafx.scene.layout.Pane;
 import sprites.Asteroid;
 import sprites.Projectile;
-import sprites.Ship;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class RemoveSprite {
-    List<Asteroid> asteroids;
-    List<Asteroid> asteroidsDivision;
-    List<Projectile> projectiles;
-    Ship ship;
-    Pane pane;
+    private List<Asteroid> asteroids;
+    private List<Asteroid> asteroidsDivision;
+    private List<Projectile> projectiles;
+    private Pane pane;
 
-    public RemoveSprite(List<Asteroid> asteroids, List<Asteroid> asteroidsDivision, List<Projectile> projectiles, Ship ship, Pane pane) {
+    public RemoveSprite(List<Asteroid> asteroids, List<Asteroid> asteroidsDivision, List<Projectile> projectiles, Pane pane) {
         this.asteroids = asteroids;
         this.asteroidsDivision = asteroidsDivision;
         this.projectiles = projectiles;
-        this.ship = ship;
         this.pane = pane;
     }
 
@@ -62,7 +59,6 @@ public class RemoveSprite {
     //si no ha colisionado en 4 segundos se borra el disparo
     public void removeProjectilAfterTime() {
         projectiles.forEach(projectile -> {
-//                    System.out.println((System.currentTimeMillis() - projectile.getTime()));
             if ((System.currentTimeMillis() - projectile.getTime()) >= 4000) {
                 projectile.setAlive(false);
             }

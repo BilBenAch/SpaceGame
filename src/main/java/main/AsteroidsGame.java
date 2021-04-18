@@ -30,24 +30,5 @@ public class AsteroidsGame extends Application {
         stage.setTitle("Asteroids");
         stage.setScene(scene);
         stage.show();
-
-        //Ventana de juego
-        /*
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/GameWindow.fxml"));
-
-        Parent root = loader.load();
-
-        GameWindow gameWindow = loader.getController();
-
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add(cssGameWindow);
-
-        gameWindow.setScene(scene);
-        gameWindow.setStage(stage);
-        gameWindow.setPane(root);
-
-        stage.setTitle("Asteroids");
-        stage.setScene(scene);
-        stage.show();*/
     }
 }

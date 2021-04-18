@@ -7,25 +7,28 @@ import javafx.scene.text.Text;
 import sprites.Asteroid;
 import sprites.Projectile;
 import sprites.Ship;
+
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class CheckCollision {
-    private String explosion = getClass().getClassLoader().getResource("sounds/explosion.mp3").toExternalForm();
-    Media explosionSound = new Media(explosion);
-    MediaPlayer mediaPlayer = new MediaPlayer(explosionSound);
-    List<Asteroid> asteroids;
-    List<Asteroid> asteroidsDivision;
-    List<Projectile> projectiles;
-    Ship ship;
-    Pane pane;
-    Text scoreboard;
-    AtomicInteger points = new AtomicInteger();
-    boolean checkColitionBigAsteroidShip = false;
-    boolean checkColitionSmallAsteroidShip = false;
-    int vidas;
-    boolean projectilColisionated = false;
-    Life life;
+    private final String asteroidExplosion = getClass().getClassLoader().getResource("sounds/explosion.mp3").toExternalForm();
+    private Media asteroidExplosionSound = new Media(asteroidExplosion);
+    private MediaPlayer asteroidMediaPlayer = new MediaPlayer(asteroidExplosionSound);
+
+    private final String shipExplosion = getClass().getClassLoader().getResource("sounds/big_explosion.mp3").toExternalForm();
+    private Media shipExplosionSound = new Media(shipExplosion);
+    private MediaPlayer shipMediaPlayer = new MediaPlayer(shipExplosionSound);
+
+    private List<Asteroid> asteroids;
+    private List<Asteroid> asteroidsDivision;
+    private List<Projectile> projectiles;
+    private Ship ship;
+    private Pane pane;
+    private Text scoreboard;
+    private AtomicInteger points = new AtomicInteger();
+    private boolean projectilColisionated = false;
+    private Life life;
 
     public CheckCollision(List<Asteroid> asteroids, List<Asteroid> asteroidsDivision, List<Projectile> projectiles, Ship ship, Pane pane, Text scoreboard, Text lifes_count) {
         this.asteroids = asteroids;
@@ -34,15 +37,14 @@ public class CheckCollision {
         this.ship = ship;
         this.pane = pane;
         this.scoreboard = scoreboard;
-        this.vidas = 3;
-        life = new Life(this.ship, this.pane, lifes_count);
+        this.life = new Life(this.ship, this.pane, lifes_count);
     }
 
-    public boolean checkCollide() {
+    public void checkCollide() {
         checkCollideBigAsteroid();
         checkCollideSmallAsteroid();
-        mediaPlayer.play();
-        return !checkCollideBigAsteroidWithShip() && !checkCollideSmallAsteroidWithShip();
+        checkCollideSmallAsteroidWithShip();
+        checkCollideBigAsteroidWithShip();
     }
 
     //comprobamos la colision del primer asteride, si colisiona lo dividimos en 2
@@ -68,18 +70,18 @@ public class CheckCollision {
 
                     pane.getChildren().add(asteroid2.getCharacter());
                     pane.getChildren().add(asteroid3.getCharacter());
-//                            contadorTiempoRespawn = 1;
-                    projectilColisionated = true;
 
+                    projectilColisionated = true;
                 }
             });
 
             if (!projectile.isAlive() && projectilColisionated) {
+                asteroidMediaPlayer.play();
+                asteroidMediaPlayer.stop();
                 incrementPoints();
-                System.out.println("primero");
+                projectilColisionated = false;
             }
         });
-
     }
 
     //comprobamos la colision del segundo asteroide
@@ -93,65 +95,43 @@ public class CheckCollision {
                 }
             });
             if (!projectile.isAlive() && projectilColisionated) {
+                asteroidMediaPlayer.play();
+                asteroidMediaPlayer.stop();
                 incrementPoints();
-                System.out.println("primero");
                 projectilColisionated = false;
             }
         });
     }
 
-    public boolean checkCollideBigAsteroidWithShip() {
-        checkColitionBigAsteroidShip = false;
+    public void checkCollideBigAsteroidWithShip() {
         asteroids.forEach(asteroid -> {
             if (ship.collide(asteroid)) {
-                System.out.println("has colisionado con 1");
+                shipMediaPlayer.play();
                 life.newLife();
-//                        ship.setAlive(false);
-//                        ship.setMovement(new Point2D(0, 0));
-//                        for (int i = 0; i < 20; i++) {
-//                            ShipChunk shipchunk = new ShipChunk(ship.getCharacter().getTranslateX(), ship.getCharacter().getTranslateY());
-//                            shipChunks.add(shipchunk);
-//                        }
-//                        shipChunks.forEach(shipchunk -> pane.getChildren().add(shipchunk.getCharacter()));
-//                        pane.getChildren().remove(ship.getCharacter());
-//                        stop();
-//                if (vidas > 0) {
-//                    ship.setAlive(false);
-//                    pane.getChildren().remove(ship.getCharacter());
-//                    Ship newShip = new Ship(WIDTH / 2, HEIGHT / 2);
-//                    pane.getChildren().add(newShip.getCharacter());
-//
-//                    newShip.move();
-////                    checkColitionBigAsteroidShip = true;
-//                    System.out.println("vidas ---> "+vidas);
-//                    vidas--;
-//                }
-//                else{
-//                    checkColitionBigAsteroidShip = true;
-//                }
-                checkColitionBigAsteroidShip = true;
             }
         });
-//                shipChunks.forEach(shipChunk -> shipChunk.move());
-
-        return checkColitionBigAsteroidShip;
     }
 
-    public boolean checkCollideSmallAsteroidWithShip() {
-    checkColitionBigAsteroidShip = false;
+    public void checkCollideSmallAsteroidWithShip() {
         asteroidsDivision.forEach(asteroid -> {
             if (ship.collide(asteroid)) {
-                System.out.println("has colisionado con 2");
-                checkColitionSmallAsteroidShip = true;
+                shipMediaPlayer.play();
                 life.newLife();
             }
         });
-        return checkColitionSmallAsteroidShip;
     }
 
     public void incrementPoints() {
+        asteroidMediaPlayer.play();
+        asteroidMediaPlayer.stop();
         scoreboard.setText("Points: " + points.addAndGet(100));
-        System.out.println(points);
     }
 
+    public Life getLife() {
+        return life;
+    }
+
+    public void setLife(Life life) {
+        this.life = life;
+    }
 }
