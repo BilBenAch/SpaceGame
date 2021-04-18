@@ -36,8 +36,24 @@ public class GameWindow implements Initializable {
 
     Ship ship;
     List<Asteroid> asteroids;
+    List<Asteroid> asteroids2;
+
+    //Comprobar colisiones
+    CheckCollision checkCollision;
+    //Eliminar items una vez colisonado
+    RemoveSprites removeSprites;
+    //Generamos niveles
+    Level levelLevel;
 
     Map<KeyCode, Boolean> pressedKeys;
+
+    int nivel = 5;
+    int temp;
+    int vidas = 3;
+
+    boolean comprobarIncrementoNivel = false;
+    //boolean para que me cuenta el primer nivel
+    boolean comprobarNivelPrimeraVez = true;
 
     @Override
     @FXML
@@ -49,10 +65,16 @@ public class GameWindow implements Initializable {
 
         ship = new Ship(WIDTH / 2, HEIGHT / 2, pane);
         asteroids = new ArrayList<>();
+        asteroids2 = new ArrayList<>();
+
+        checkCollision = new CheckCollision(asteroids, asteroids2, ship.getProjectiles(), ship, pane, scoreboard);
+        removeSprites = new RemoveSprites(asteroids, asteroids2, ship.getProjectiles(), ship, pane);
+        levelLevel = new Level(asteroids, asteroids2, nivel, temp, level, pane, comprobarNivelPrimeraVez);
+
 
         for (int i = 0; i < 5; i++) {
             Random rnd = new Random();
-            Asteroid asteroid = new Asteroid(rnd.nextInt(WIDTH / 3), rnd.nextInt(HEIGHT));
+            Asteroid asteroid = new Asteroid(rnd.nextInt(WIDTH / 3), rnd.nextInt(HEIGHT), 1);
             asteroids.add(asteroid);
         }
 
@@ -82,9 +104,19 @@ public class GameWindow implements Initializable {
 
                 ship.move();
                 asteroids.forEach(asteroid -> asteroid.move());
+                asteroids2.forEach(asteroid -> asteroid.move());
                 ship.getProjectiles().forEach(projectile -> projectile.move());
 
-                ship.getProjectiles().forEach(projectile -> {
+                if (!checkCollision.checkCollide()) {
+//                    stop();
+                }
+                //eliminamos sprites
+                removeSprites.remove();
+
+                levelLevel.checkLevel();
+
+
+                /*ship.getProjectiles().forEach(projectile -> {
                     asteroids.forEach(asteroid -> {
                         if (projectile.collide(asteroid)) {
                             projectile.setAlive(false);
@@ -115,7 +147,7 @@ public class GameWindow implements Initializable {
                     if (ship.collide(asteroid)) {
                         stop();
                     }
-                });
+                });*/
             }
         }.start();
     }

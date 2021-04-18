@@ -1,9 +1,14 @@
+controller\Lifes.class
 sprites\Projectile.class
 controller\AsteroidsNewGame.class
 sprites\Ship.class
 controller\GameWindow$1.class
 controller\GameWindow.class
+controller\RemoveSprites.class
 sprites\Asteroid.class
 main\AsteroidsGame.class
+controller\CheckCollision.class
+controller\Level.class
 sprites\PolygonFactory.class
 sprites\Character.class
+sprites\ShipChunk.class
