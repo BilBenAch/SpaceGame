@@ -7,10 +7,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sprites.Asteroid;
 import sprites.Ship;
+
 import java.net.URL;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -55,9 +58,19 @@ public class GameWindow implements Initializable {
     //boolean para que me cuenta el primer nivel
     boolean comprobarNivelPrimeraVez = true;
 
+    private String music;
+    Media backgroundMusic;
+    MediaPlayer mediaPlayer;
+
+
     @Override
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        music = getClass().getClassLoader().getResource("sounds/space_battles_music.mp3").toExternalForm();
+        backgroundMusic = new Media(music);
+        mediaPlayer = new MediaPlayer(backgroundMusic);
+        //mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
         pressedKeys = new HashMap<>();
 
         points = new AtomicInteger();
@@ -100,6 +113,16 @@ public class GameWindow implements Initializable {
 
                 if (pressedKeys.getOrDefault(KeyCode.SPACE, false) && ship.getProjectiles().size() < 5) {
                     ship.shoot();
+                }
+
+                if (pressedKeys.getOrDefault(KeyCode.M, false) && mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
+
+                    mediaPlayer.stop();
+                    System.out.println(mediaPlayer.getStatus());
+
+                }
+                if (pressedKeys.getOrDefault(KeyCode.M, false) && mediaPlayer.getStatus() == MediaPlayer.Status.STOPPED){
+                    mediaPlayer.play();
                 }
 
                 ship.move();

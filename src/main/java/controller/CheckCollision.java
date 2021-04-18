@@ -1,15 +1,19 @@
 package controller;
 
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import sprites.Asteroid;
 import sprites.Projectile;
 import sprites.Ship;
-
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class CheckCollision {
+  private String explosion = getClass().getClassLoader().getResource("sounds/explosion.mp3").toExternalForm();
+  Media explosionSound = new Media(explosion);
+  MediaPlayer mediaPlayer = new MediaPlayer(explosionSound);
   List<Asteroid> asteroids;
   List<Asteroid> asteroidsDivision;
   List<Projectile> projectiles;
@@ -35,6 +39,7 @@ public class CheckCollision {
   public boolean checkCollide() {
     checkCollideBigAsteroid();
     checkCollideSmallAsteroid();
+    mediaPlayer.play();
     return !checkCollideBigAsteroidWithShip() && !checkCollideSmallAsteroidWithShip();
   }
 

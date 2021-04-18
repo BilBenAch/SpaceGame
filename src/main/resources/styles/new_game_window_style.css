@@ -19,9 +19,23 @@
 
 #title{
    -fx-fill: red;
-   -fx-font_family: Consolas;
 }
 
 #made_by, #belal, #antonio{
     -fx-fill: red;
+}
+
+#controls{
+    -fx-fill: green;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}
+
+#up, #left_right, #spacebar, #m_key, #accelerate, #rotate, #shoot, #music{
+    -fx-font-size: 16px;
+    -fx-fill: green;
+}
+
+#up, #left_right, #spacebar, #m_key{
+    -fx-font-weight: bold;
 }

@@ -5,7 +5,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Polygon;
 
 public class Projectile extends Character {
-    private String shot = getClass().getClassLoader().getResource("sounds/laser_shot.mp3").toExternalForm();
+    private String shot = getClass().getClassLoader().getResource("sounds/ship-shoot.wav").toExternalForm();
     Media shotSound = new Media(shot);
     MediaPlayer mediaPlayer = new MediaPlayer(shotSound);
     long time;
