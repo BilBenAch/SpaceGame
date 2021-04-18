@@ -32,6 +32,7 @@ public class AsteroidsGame extends Application {
     boolean comprobarIncrementoNivel = false;
     //boolean para que me cuenta el primer nivel
     boolean comprobarNivelPrimeraVez = true;
+    Ship ship;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -46,8 +47,8 @@ public class AsteroidsGame extends Application {
         Text levelPanel = new Text(500, 20, "Level: 1");
         pane.getChildren().add(levelPanel);
 
+        ship = new Ship(WIDTH / 2, HEIGHT / 2);
 
-        Ship ship = new Ship(WIDTH / 2, HEIGHT / 2);
 
         List<Projectile> projectiles = new ArrayList<>();
         List<Asteroid> asteroids = new ArrayList<>();
@@ -121,13 +122,14 @@ public class AsteroidsGame extends Application {
                             pane.getChildren().add(projectile.getCharacter());
                         }
                         maxProjectiles++;
+                        System.out.println("1-->" +ship.isAlive());
                     }
                 }
 //                System.out.println(System.currentTimeMillis());
 //                if (ship.isAlive()) {
 //                    ship.move();
 //                }
-
+//                System.out.println("2 --> "+ ship.isAlive());
                 ship.move();
                 asteroids.forEach(asteroid -> asteroid.move());
                 projectiles.forEach(projectile -> projectile.move());
@@ -135,13 +137,14 @@ public class AsteroidsGame extends Application {
 
                 //comprobamos que si colisiona la nave con el asteoride se pare
                 if (!checkCollision.checkCollide()) {
+//                    ship = removeSprites.removeShip();
+//                        removeSprites.
 //                    stop();
                 }
                 //eliminamos sprites
                 removeSprites.remove();
 
                 level.checkLevel();
-
             }
         }.start();
 

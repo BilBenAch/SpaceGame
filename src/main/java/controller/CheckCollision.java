@@ -22,6 +22,7 @@ public class CheckCollision {
     boolean checkColitionSmallAsteroidShip = false;
     int vidas;
     boolean projectilColisionated = false;
+    Lifes lifes;
 
     public CheckCollision(List<Asteroid> asteroids, List<Asteroid> asteroidsDivision, List<Projectile> projectiles, Ship ship, Pane pane, Text scoreboard) {
         this.asteroids = asteroids;
@@ -31,6 +32,7 @@ public class CheckCollision {
         this.pane = pane;
         this.scoreboard = scoreboard;
         this.vidas = 3;
+        lifes = new Lifes(ship, pane);
     }
 
     public boolean checkCollide() {
@@ -98,32 +100,11 @@ public class CheckCollision {
         asteroids.forEach(asteroid -> {
             if (ship.collide(asteroid)) {
                 System.out.println("has colisionado con 1");
-//                        ship.setAlive(false);
-//                        ship.setMovement(new Point2D(0, 0));
-//                        for (int i = 0; i < 20; i++) {
-//                            ShipChunk shipchunk = new ShipChunk(ship.getCharacter().getTranslateX(), ship.getCharacter().getTranslateY());
-//                            shipChunks.add(shipchunk);
-//                        }
-//                        shipChunks.forEach(shipchunk -> pane.getChildren().add(shipchunk.getCharacter()));
-//                        pane.getChildren().remove(ship.getCharacter());
-//                        stop();
-//                if (vidas > 0) {
-//                    ship.setAlive(false);
-//                    pane.getChildren().remove(ship.getCharacter());
-//                    Ship newShip = new Ship(WIDTH / 2, HEIGHT / 2);
-//                    pane.getChildren().add(newShip.getCharacter());
-//                    newShip.move();
-//                    checkColitionBigAsteroidShip = true;
-//                    System.out.println("vidas ---> "+vidas);
-//                    vidas--;
-//                }
-//                else{
-//                    checkColitionBigAsteroidShip = true;
-//                }
+                lifes.newLife();
+
                 checkColitionBigAsteroidShip = true;
             }
         });
-//                shipChunks.forEach(shipChunk -> shipChunk.move());
 
         return checkColitionBigAsteroidShip;
     }

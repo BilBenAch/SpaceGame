@@ -8,21 +8,21 @@ import java.util.concurrent.atomic.AtomicInteger;
 import static main.AsteroidsGame.HEIGHT;
 import static main.AsteroidsGame.WIDTH;
 
-public class    Level {
+public class Level {
     List<Asteroid> asteroidsBigs;
     List<Asteroid> asteroidsSmalls;
-    Integer level;
-    Integer temp;
+    int level;
+    int drawAsteroids = 5;
     Text levelPanel;
     Pane pane;
     AtomicInteger levels = new AtomicInteger();
     boolean comprobarPrimerNivel;
 
-    public Level(List<Asteroid> asteroidsBigs, List<Asteroid> asteroidsSmalls, Integer level, Integer temp, Text levelPanel, Pane pane, boolean comprobarPrimerNivel) {
+    public Level(List<Asteroid> asteroidsBigs, List<Asteroid> asteroidsSmalls, Integer level, Integer drawAsteroids, Text levelPanel, Pane pane, boolean comprobarPrimerNivel) {
         this.asteroidsBigs = asteroidsBigs;
         this.asteroidsSmalls = asteroidsSmalls;
         this.level = level;
-        this.temp = temp;
+        this.drawAsteroids = drawAsteroids;
         this.levelPanel = levelPanel;
         this.pane = pane;
         this.comprobarPrimerNivel = comprobarPrimerNivel;
@@ -58,7 +58,7 @@ public class    Level {
 
     //  metodo para incrementar nivel
     public void levelUp() {
-        this.level += 5;
+        this.level += drawAsteroids;
     }
 
 }

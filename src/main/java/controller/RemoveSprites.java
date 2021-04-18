@@ -1,6 +1,7 @@
 package controller;
 
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Polygon;
 import sprites.Asteroid;
 import sprites.Projectile;
 import sprites.Ship;
@@ -26,15 +27,15 @@ public class RemoveSprites {
         this.pane = pane;
     }
 
-    public void remove(){
+    public void remove() {
         removeProjectiles();
         removeBigAsteroid();
         removeSmallAsteroid();
         removeProjectilAfterTime();
-//        removeShip();
+//        newLife();
     }
 
-    public void removeProjectiles(){
+    public void removeProjectiles() {
         projectiles.stream()
                 .filter(projectile -> !projectile.isAlive())
                 .forEach(projectile -> pane.getChildren().remove(projectile.getCharacter()));
@@ -44,7 +45,7 @@ public class RemoveSprites {
                 .collect(Collectors.toList()));
     }
 
-    public void removeBigAsteroid(){
+    public void removeBigAsteroid() {
         asteroids.stream()
                 .filter(asteroid -> !asteroid.isAlive())
                 .forEach(asteroid -> pane.getChildren().remove(asteroid.getCharacter()));
@@ -53,7 +54,8 @@ public class RemoveSprites {
                 .filter(asteroid -> !asteroid.isAlive())
                 .collect(Collectors.toList()));
     }
-    public void removeSmallAsteroid(){
+
+    public void removeSmallAsteroid() {
         asteroidsDivision.stream()
                 .filter(asteroid -> !asteroid.isAlive())
                 .forEach(asteroid -> pane.getChildren().remove(asteroid.getCharacter()));
@@ -61,25 +63,17 @@ public class RemoveSprites {
         asteroidsDivision.removeAll(asteroidsDivision.stream()
                 .filter(asteroid -> !asteroid.isAlive())
                 .collect(Collectors.toList()));
-        }
+    }
 
     //si no ha colisionado en 4 segundos se borra el disparo
-        public void removeProjectilAfterTime(){
-            projectiles.forEach(projectile -> {
+    public void removeProjectilAfterTime() {
+        projectiles.forEach(projectile -> {
 //                    System.out.println((System.currentTimeMillis() - projectile.getTime()));
-                if ((System.currentTimeMillis() - projectile.getTime()) >= 4000) {
-                    projectile.setAlive(false);
-                }
-            });
-        }
-//        public void removeShip(){
-//            if(!ship.isAlive()){
-//                pane.getChildren().remove(ship.getCharacter());
-//                pane.getChildren().removeAll(ship.getCharacter());
-//                this.ship = new Ship(WIDTH / 2, HEIGHT / 2);
-//                pane.getChildren().add(this.ship.getCharacter());
-//                this.ship.setAlive(true);
-////                ship.move();
-//            }
-        }
+            if ((System.currentTimeMillis() - projectile.getTime()) >= 4000) {
+                projectile.setAlive(false);
+            }
+        });
+    }
+
+}
 
