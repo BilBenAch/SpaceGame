@@ -9,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import main.AsteroidsGame;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -39,8 +41,10 @@ public class AsteroidsNewGame implements Initializable {
         gameWindow = loader.getController();
         scene.getStylesheets().add(cssGameWindow);
         gameWindow.setScene(scene);
+        gameWindow.setStage(stage);
 
         stage.getScene().setRoot(newRoot);
+
     }
 
     public Stage getStage() {

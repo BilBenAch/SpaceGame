@@ -28,7 +28,7 @@ public class CheckCollision {
     boolean projectilColisionated = false;
     Life life;
 
-    public CheckCollision(List<Asteroid> asteroids, List<Asteroid> asteroidsDivision, List<Projectile> projectiles, Ship ship, Pane pane, Text scoreboard) {
+    public CheckCollision(List<Asteroid> asteroids, List<Asteroid> asteroidsDivision, List<Projectile> projectiles, Ship ship, Pane pane, Text scoreboard, Text lifes_count) {
         this.asteroids = asteroids;
         this.asteroidsDivision = asteroidsDivision;
         this.projectiles = projectiles;
@@ -36,7 +36,7 @@ public class CheckCollision {
         this.pane = pane;
         this.scoreboard = scoreboard;
         this.vidas = 3;
-        life = new Life(this.ship, this.pane);
+        life = new Life(this.ship, this.pane, lifes_count);
     }
 
     public boolean checkCollide() {
@@ -153,7 +153,6 @@ public class CheckCollision {
     public void incrementPoints() {
         scoreboard.setText("Points: " + points.addAndGet(100));
         System.out.println(points);
-
     }
 
 }

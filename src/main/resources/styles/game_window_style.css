@@ -6,9 +6,26 @@
 
 }
 
-#scoreboard, #level{
+#scoreboard, #level, #lifes_counter{
     -fx-fill: red;
     -fx-font-size: 18px;
     -fx-font-family: Consolas;
     -fx-font-weight: bold;
+}
+
+#restart_button{
+    -fx-font-size: 20px;
+    -fx-text-fill: white;
+    -fx-background-color: green;
+}
+
+#restart_button:hover{
+    -fx-font-size: 20px;
+    -fx-text-fill: black;
+    -fx-background-color: white;
+}
+
+#game_over{
+    -fx-fill: red;
+    -fx-font-family: Consolas;
 }

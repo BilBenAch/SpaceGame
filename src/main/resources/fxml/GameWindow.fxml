@@ -9,11 +9,12 @@
    <children>
       <Text id="scoreboard" fx:id="scoreboard" layoutX="23.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points: 0" />
       <Text id="level" fx:id="level" layoutX="23.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level: 1" />
-      <Text id="game_over" fx:id="game_over" fill="RED" layoutX="134.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Over">
+      <Text id="game_over" fx:id="game_over" layoutX="126.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Over">
          <font>
-            <Font size="67.0" />
+            <Font size="70.0" />
          </font>
       </Text>
-      <Button id="restart_button" fx:id="restart_button" disable="true" layoutX="274.0" layoutY="360.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked" text="Button" />
+      <Button id="restart_button" fx:id="restart_button" disable="true" layoutX="224.0" layoutY="323.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked" prefHeight="50.0" prefWidth="150.0" text="Main Screen" />
+      <Text id="lifes_counter" fx:id="lifes_counter" layoutX="505.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lifes: 3" />
    </children>
 </Pane>

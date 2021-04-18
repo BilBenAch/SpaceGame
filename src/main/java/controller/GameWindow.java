@@ -2,6 +2,7 @@ package controller;
 
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,6 +15,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sprites.Asteroid;
 import sprites.Ship;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 import java.util.List;
@@ -25,7 +28,10 @@ public class GameWindow implements Initializable {
     private boolean gameStarted;
 
     Scene scene;
-    Stage primaryStage;
+    Stage stage;
+
+    String cssNewGame = getClass().getResource("/styles/new_game_window_style.css").toExternalForm();
+    AsteroidsNewGame asteroidsNewGame;
 
     @FXML
     Pane pane;
@@ -43,6 +49,9 @@ public class GameWindow implements Initializable {
 
     @FXML
     Text game_over;
+
+    @FXML
+    Text lifes_counter;
 
     Ship ship;
     List<Asteroid> asteroids;
@@ -65,9 +74,13 @@ public class GameWindow implements Initializable {
     //boolean para que me cuenta el primer nivel
     boolean comprobarNivelPrimeraVez = true;
 
-    private String music;
+    private String backgroundSong;
     Media backgroundMusic;
-    MediaPlayer mediaPlayer;
+    MediaPlayer mediaPlayerGameMusic;
+
+    private String gameOverSong;
+    Media gameOverMusic;
+    MediaPlayer mediaPlayerGameOver;
 
     Life life;
 
@@ -75,11 +88,17 @@ public class GameWindow implements Initializable {
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
         gameStarted = true;
-        music = getClass().getClassLoader().getResource("sounds/space_battles_music.mp3").toExternalForm();
-        backgroundMusic = new Media(music);
-        mediaPlayer = new MediaPlayer(backgroundMusic);
-        mediaPlayer.play();
-        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+
+        backgroundSong = getClass().getClassLoader().getResource("sounds/space_battles_music.mp3").toExternalForm();
+        backgroundMusic = new Media(backgroundSong);
+        mediaPlayerGameMusic = new MediaPlayer(backgroundMusic);
+        mediaPlayerGameMusic.play();
+        mediaPlayerGameMusic.setCycleCount(MediaPlayer.INDEFINITE);
+
+        gameOverSong = getClass().getClassLoader().getResource("sounds/game_over.mp3").toExternalForm();
+        gameOverMusic = new Media(gameOverSong);
+        mediaPlayerGameOver = new MediaPlayer(gameOverMusic);
+
         pressedKeys = new HashMap<>();
 
 
@@ -96,11 +115,11 @@ public class GameWindow implements Initializable {
         asteroids = new ArrayList<>();
         asteroids2 = new ArrayList<>();
 
-        checkCollision = new CheckCollision(asteroids, asteroids2, ship.getProjectiles(), ship, pane, scoreboard);
+        checkCollision = new CheckCollision(asteroids, asteroids2, ship.getProjectiles(), ship, pane, scoreboard, lifes_counter);
         removeSprites = new RemoveSprite(asteroids, asteroids2, ship.getProjectiles(), ship, pane);
         levelLevel = new Level(asteroids, asteroids2, nivel, temp, level, pane, comprobarNivelPrimeraVez);
 
-        life = new Life(ship, pane);
+        life = new Life(ship, pane, lifes_counter);
 
         for (int i = 0; i < 5; i++) {
             Random rnd = new Random();
@@ -122,10 +141,12 @@ public class GameWindow implements Initializable {
                     game_over.setDisable(false);
                     restart_button.setVisible(true);
                     restart_button.setDisable(false);
-
-                    asteroids.forEach(asteroid -> asteroid.setAlive(false));
-                    asteroids2.forEach(asteroid -> asteroid.setAlive(false));
-                    removeSprites.remove();
+                    mediaPlayerGameMusic.stop();
+                    mediaPlayerGameOver.play();
+                    stop();
+                    //asteroids.forEach(asteroid -> asteroid.setAlive(false));
+                    //asteroids2.forEach(asteroid -> asteroid.setAlive(false));
+                    //removeSprites.remove();
 
                 }
 
@@ -151,12 +172,12 @@ public class GameWindow implements Initializable {
 
                 if (pressedKeys.getOrDefault(KeyCode.M, false)) {
 
-                    if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
-                        mediaPlayer.pause();
+                    if (mediaPlayerGameMusic.getStatus() == MediaPlayer.Status.PLAYING) {
+                        mediaPlayerGameMusic.pause();
                     }
 
-                    if (mediaPlayer.getStatus() == MediaPlayer.Status.PAUSED) {
-                        mediaPlayer.play();
+                    if (mediaPlayerGameMusic.getStatus() == MediaPlayer.Status.PAUSED) {
+                        mediaPlayerGameMusic.play();
                     }
 
                 }
@@ -214,12 +235,12 @@ public class GameWindow implements Initializable {
 
     }
 
-    public void setStage(Stage primaryStage) {
-        this.primaryStage = primaryStage;
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
 
-    public Stage getPrimaryStage() {
-        return primaryStage;
+    public Stage getStage() {
+        return stage;
     }
 
     public void setScene(Scene sc) {
@@ -249,13 +270,16 @@ public class GameWindow implements Initializable {
         asteroids2.forEach(asteroid -> asteroid.setAlive(true));
     }
 
-    public void onMouseClicked(){
-        newGame();
-        restart_button.setDisable(true);
-        restart_button.setVisible(false);
-        game_over.setDisable(true);
-        game_over.setVisible(false);
-        gameStarted = true;
-        System.out.println(gameStarted);
+    public void onMouseClicked() throws IOException {
+        mediaPlayerGameMusic.stop();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/AsteroidsNewGame.fxml"));
+        Parent newRoot = loader.load();
+        asteroidsNewGame = loader.getController();
+        scene.getStylesheets().add(cssNewGame);
+        asteroidsNewGame.setScene(scene);
+        asteroidsNewGame.setStage(stage);
+
+        stage.getScene().setRoot(newRoot);
     }
 }
