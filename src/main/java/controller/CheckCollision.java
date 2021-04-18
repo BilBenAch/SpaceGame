@@ -9,6 +9,9 @@ import sprites.Ship;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static controller.GameWindow.HEIGHT;
+import static controller.GameWindow.WIDTH;
+
 public class CheckCollision {
     List<Asteroid> asteroids;
     List<Asteroid> asteroidsDivision;
@@ -19,6 +22,8 @@ public class CheckCollision {
     AtomicInteger points = new AtomicInteger();
     boolean checkColitionBigAsteroidShip = false;
     boolean checkColitionSmallAsteroidShip = false;
+    int vidas;
+    boolean projectilColisionated = false;
 
     public CheckCollision(List<Asteroid> asteroids, List<Asteroid> asteroidsDivision, List<Projectile> projectiles, Ship ship, Pane pane, Text scoreboard) {
         this.asteroids = asteroids;
@@ -27,7 +32,7 @@ public class CheckCollision {
         this.ship = ship;
         this.pane = pane;
         this.scoreboard = scoreboard;
-
+        this.vidas = 3;
     }
 
     public boolean checkCollide() {
@@ -60,10 +65,14 @@ public class CheckCollision {
                     pane.getChildren().add(asteroid2.getCharacter());
                     pane.getChildren().add(asteroid3.getCharacter());
 //                            contadorTiempoRespawn = 1;
+                    projectilColisionated = true;
+
                 }
             });
-            if (!projectile.isAlive()) {
+
+            if (!projectile.isAlive() && projectilColisionated) {
                 incrementPoints();
+                System.out.println("primero");
             }
         });
 
@@ -76,10 +85,13 @@ public class CheckCollision {
                 if (projectile.collide(asteroid)) {
                     projectile.setAlive(false);
                     asteroid.setAlive(false);
+                    projectilColisionated = true;
                 }
             });
-            if (!projectile.isAlive()) {
+            if (!projectile.isAlive() && projectilColisionated) {
                 incrementPoints();
+                System.out.println("primero");
+                projectilColisionated = false;
             }
         });
     }
@@ -97,6 +109,20 @@ public class CheckCollision {
 //                        shipChunks.forEach(shipchunk -> pane.getChildren().add(shipchunk.getCharacter()));
 //                        pane.getChildren().remove(ship.getCharacter());
 //                        stop();
+//                if (vidas > 0) {
+//                    ship.setAlive(false);
+//                    pane.getChildren().remove(ship.getCharacter());
+//                    Ship newShip = new Ship(WIDTH / 2, HEIGHT / 2);
+//                    pane.getChildren().add(newShip.getCharacter());
+//
+//                    newShip.move();
+////                    checkColitionBigAsteroidShip = true;
+//                    System.out.println("vidas ---> "+vidas);
+//                    vidas--;
+//                }
+//                else{
+//                    checkColitionBigAsteroidShip = true;
+//                }
                 checkColitionBigAsteroidShip = true;
             }
         });
@@ -116,10 +142,10 @@ public class CheckCollision {
         return checkColitionSmallAsteroidShip;
     }
 
-
-
     public void incrementPoints() {
         scoreboard.setText("Points: " + points.addAndGet(100));
+        System.out.println(points);
+
     }
 
 }

@@ -3,10 +3,8 @@ package controller;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import sprites.Asteroid;
-
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-
 import static main.AsteroidsGame.HEIGHT;
 import static main.AsteroidsGame.WIDTH;
 

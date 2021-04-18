@@ -9,9 +9,7 @@ public class Asteroid extends Character {
     public Asteroid(int x, int y, int size) {
         super(new PolygonFactory().createPolygon(size), x, y);
 
-
         Random rnd = new Random();
-
 
         super.getCharacter().setRotate(rnd.nextInt(360));
 
@@ -22,7 +20,6 @@ public class Asteroid extends Character {
 
         this.rotationalMovement = 0.5 - rnd.nextDouble();
     }
-
     @Override
     public void move() {
         super.move();

@@ -11,28 +11,25 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sprites.*;
-
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class AsteroidsGame extends Application {
     public static int WIDTH = 600;
     public static int HEIGHT = 600;
-    public static double posicionX;
-    public static double posicionY;
 
     public static void main(String[] args) {
         launch(args);
     }
 
     int maxProjectiles = 0;
-    //    int contadorTiempoRespawn = 0;
     //variable que crea los asteroides en base al nivel
     int nivel = 5;
     int temp;
+    int vidas = 3;
+
     //booleana para comprobar que entre donde los niveles
     boolean comprobarIncrementoNivel = false;
-
     //boolean para que me cuenta el primer nivel
     boolean comprobarNivelPrimeraVez = true;
 
@@ -49,10 +46,6 @@ public class AsteroidsGame extends Application {
         Text levelPanel = new Text(500, 20, "Level: 1");
         pane.getChildren().add(levelPanel);
 
-        AtomicInteger points = new AtomicInteger();
-
-        //contador de niveles
-        AtomicInteger levels = new AtomicInteger();
 
         Ship ship = new Ship(WIDTH / 2, HEIGHT / 2);
 
@@ -141,7 +134,7 @@ public class AsteroidsGame extends Application {
 
                 //comprobamos que si colisiona la nave con el asteoride se pare
                 if (!checkCollision.checkCollide()) {
-                    stop();
+//                    stop();
                 }
                 //eliminamos sprites
                 removeSprites.remove();
