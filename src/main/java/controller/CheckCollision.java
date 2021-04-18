@@ -7,7 +7,6 @@ import javafx.scene.text.Text;
 import sprites.Asteroid;
 import sprites.Projectile;
 import sprites.Ship;
-
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 

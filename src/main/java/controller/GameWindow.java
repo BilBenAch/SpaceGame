@@ -15,7 +15,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sprites.Asteroid;
 import sprites.Ship;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
@@ -135,7 +134,7 @@ public class GameWindow implements Initializable {
             @Override
             public void handle(long now) {
 
-                if (checkCollision.life.getLifes() == 0){
+                if (checkCollision.life.getLives() == 0){
                     gameStarted = false;
                     game_over.setVisible(true);
                     game_over.setDisable(false);
@@ -263,7 +262,7 @@ public class GameWindow implements Initializable {
         ship.getCharacter().setTranslateX(WIDTH / 2);
         ship.getCharacter().setTranslateY(HEIGHT / 2);
         removeSprites.remove();
-        checkCollision.life.setLifes(3);
+        checkCollision.life.setLives(3);
         points.set(0);
         levelNumber.set(1);
         asteroids.forEach(asteroid -> asteroid.setAlive(true));

@@ -15,6 +15,6 @@
          </font>
       </Text>
       <Button id="restart_button" fx:id="restart_button" disable="true" layoutX="224.0" layoutY="323.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked" prefHeight="50.0" prefWidth="150.0" text="Main Screen" />
-      <Text id="lifes_counter" fx:id="lifes_counter" layoutX="505.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lifes: 3" />
+      <Text id="lifes_counter" fx:id="lifes_counter" layoutX="501.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lives: 3" />
    </children>
 </Pane>

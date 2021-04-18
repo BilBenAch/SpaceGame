@@ -4,7 +4,6 @@ import javafx.scene.layout.Pane;
 import sprites.Asteroid;
 import sprites.Projectile;
 import sprites.Ship;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
