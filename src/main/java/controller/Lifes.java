@@ -22,6 +22,7 @@ public class Lifes {
         this.ship.getCharacter().setTranslateY(HEIGHT / 2);
 //        this.pane.getChildren().add(this.ship.getCharacter());
         ship.setMovement(new Point2D(0, 0));
+        System.out.println();
     }
 
 }
