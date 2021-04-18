@@ -27,6 +27,7 @@ public class AsteroidsGame extends Application {
         asteroidsNewGame.setScene(scene);
 
         scene.getStylesheets().add(cssNewGameWindow);
+        stage.setTitle("Asteroids");
         stage.setScene(scene);
         stage.show();
 
