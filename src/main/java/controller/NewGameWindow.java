@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AsteroidsNewGame implements Initializable {
+public class NewGameWindow implements Initializable {
 
     private Stage stage;
     private Scene scene;

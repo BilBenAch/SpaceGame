@@ -1,6 +1,6 @@
 package main;
 
-import controller.AsteroidsNewGame;
+import controller.NewGameWindow;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,9 +22,9 @@ public class AsteroidsGame extends Application {
         Parent root = loader.load();
         Scene scene = new Scene(root);
 
-        AsteroidsNewGame asteroidsNewGame = loader.getController();
-        asteroidsNewGame.setStage(stage);
-        asteroidsNewGame.setScene(scene);
+        NewGameWindow newGameWindow = loader.getController();
+        newGameWindow.setStage(stage);
+        newGameWindow.setScene(scene);
 
         scene.getStylesheets().add(cssNewGameWindow);
         stage.setTitle("Asteroids");

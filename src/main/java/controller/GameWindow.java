@@ -31,7 +31,7 @@ public class GameWindow implements Initializable {
     private Stage stage;
 
     private final String cssNewGame = getClass().getResource("/styles/new_game_window_style.css").toExternalForm();
-    private AsteroidsNewGame asteroidsNewGame;
+    private NewGameWindow newGameWindow;
 
     @FXML
     private Pane pane;
@@ -214,10 +214,10 @@ public class GameWindow implements Initializable {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/AsteroidsNewGame.fxml"));
         Parent newRoot = loader.load();
-        asteroidsNewGame = loader.getController();
+        newGameWindow = loader.getController();
         scene.getStylesheets().add(cssNewGame);
-        asteroidsNewGame.setScene(scene);
-        asteroidsNewGame.setStage(stage);
+        newGameWindow.setScene(scene);
+        newGameWindow.setStage(stage);
 
         stage.getScene().setRoot(newRoot);
     }
