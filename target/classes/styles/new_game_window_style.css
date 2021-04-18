@@ -1,0 +1,27 @@
+.root{
+    -fx-background-image: url("/sprites/space_background.gif");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 600 600;
+    -fx-background-position: center center;
+    -fx-font-family: Consolas;
+}
+#play_button{
+    -fx-font-size: 20px;
+    -fx-text-fill: white;
+    -fx-background-color: green;
+}
+
+#play_button:hover{
+    -fx-font-size: 20px;
+    -fx-text-fill: black;
+    -fx-background-color: white;
+}
+
+#title{
+   -fx-fill: red;
+   -fx-font_family: Consolas;
+}
+
+#made_by, #belal, #antonio{
+    -fx-fill: red;
+}

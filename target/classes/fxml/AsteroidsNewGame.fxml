@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AsteroidsNewGame">
+   <children>
+      <Button id="play_button" fx:id="play_button" layoutX="225.0" layoutY="375.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked" prefHeight="50.0" prefWidth="150.0" text="Play" textAlignment="CENTER" />
+      <Text id="title" fx:id="title" layoutX="156.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Asteroids">
+         <font>
+            <Font size="70.0" />
+         </font>
+      </Text>
+      <Text id="made_by" fx:id="made_by" layoutX="28.0" layoutY="522.0" strokeType="OUTSIDE" strokeWidth="0.0" text="An absolute amazing game made by:" />
+      <Text id="belal" fx:id="belal" layoutX="28.0" layoutY="548.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Belal Benmousa" />
+      <Text id="antonio" fx:id="antonio" layoutX="28.0" layoutY="572.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Antonio Tomás" />
+   </children>
+</AnchorPane>
